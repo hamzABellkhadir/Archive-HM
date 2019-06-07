@@ -1,0 +1,76 @@
+
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <mat-list>
+        <mat-list-item routerLink=""> <mat-icon color="primary"> home</mat-icon> Accueil </mat-list-item>
+        <mat-list-item> <mat-icon color="primary"> archive</mat-icon> Archives </mat-list-item>
+        <mat-list-item routerLink="ADS" class=" souslist"> Versement aux archives </mat-list-item>
+        <mat-list-item routerLink="RDN" class="souslist"> Consultation des archives  </mat-list-item>
+        <mat-list-item routerLink="damandeStage" class="souslist"> Archives sorties </mat-list-item>
+        <mat-list-item routerLink="TMD" (click)="number_doc()">
+        <!-- <mat-icon color="primary" *ngIf="count_doc?.length !== 0"  matBadge={{count_doc?.length}}  matBadgeColor="accent" > notification  </mat-icon>
+          <mat-icon color="primary"  *ngIf="count_doc?.length == 0">notification</mat-icon> -->
+          <mat-icon color="primary" >notification_important</mat-icon>
+          Notification</mat-list-item>
+
+        <mat-list-item routerLink="Parametre" > <mat-icon color="primary" >settings</mat-icon>Paramètre </mat-list-item>
+
+      </mat-list>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <img src="../../../assets/img/Ahm-Logo.png" class="logo img-fluid mx-auto d-block mb-3" alt="">
+
+      <span class="ppp">Espace Admin</span>
+      <span class="spacer"></span>
+
+     <!-- <img mat-fab [matMenuTriggerFor]="menu" class="mmm clickcable" *ngIf="x?.image!==null" src="../../../assets/img/{{x?.image}}"> -->
+      <img mat-fab [matMenuTriggerFor]="menu" class="mmm clickcable" *ngIf="x?.image==null" src="../../../assets/img/user.png">
+
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['profile']">
+          <mat-icon color="primary">account_circle</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item routerLink="Parametre" >
+          <mat-icon color="primary">settings</mat-icon>
+          <span>Paramétre</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon color="primary">exit_to_app</mat-icon>
+          <span>Déconnection</span>
+        </button>
+      </mat-menu>
+
+
+
+    </mat-toolbar>
+
+    <!-- Add Content Here -->
+    <br>
+
+    <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+      <router-outlet #o="outlet"></router-outlet>
+    </main>
+
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

@@ -1,5 +1,6 @@
 
-<div class="card-deck" style="width: 350px; height: 450px ; margin : 20%;" >
+<div class="card-group" style="margin-left : 20%; margin-top: 5%">
+<div class="card-deck" style="width: 350px; height: 450px ; padding-left: 20px; margin-bottom: 20px " >
   <div class="card">
     <img src="../../../assets/img/Ahm-Logo.png" style="width: 100%" class="card-img-top" alt="...">
     <div class="card-body">
@@ -7,7 +8,72 @@
       <hr>
       <p class="card-text">Pour que un Personnel arrive a consulter un archive il faux donc remplir un fichier qui contient vot information.</p>
     </div>
-      <button mat-button class="card-footer" >Click me!</button>
+      <button mat-button (click)="openBackDropCustomClass(content)" class="card-footer" >Telecharger</button>
   </div>
 </div>
 
+<div class="card-deck" style="width: 350px; height: 450px ; padding-left :20px" >
+  <div class="card">
+    <img src="../../../assets/img/Ahm-Logo.png" style="width: 100%" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Déposer un achive </h5>
+      <hr>
+      <p class="card-text">Pour que un Personnel arrive a déposer un archive il faux donc remplir un fichier qui contient vot information.</p>
+    </div>
+    <button mat-button (click)="openBackDropCustomClass(content1)" class="card-footer" >Déposer!</button>
+  </div>
+</div>
+
+  <div class="card-deck" style="width: 350px; height: 450px ; padding-left: 20px;" >
+    <div class="card">
+      <img src="../../../assets/img/Ahm-Logo.png" style="width: 100%" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Information</h5>
+        <hr>
+        <p class="card-text">Pour §§que un Personnel arrive a déposer un archive il faux donc remplir un fichier qui contient vot information.</p>
+      </div>
+      <button mat-button class="card-footer" >Déposer!</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- valider la demande et imprimer -->
+
+<ng-template #content id="content" let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">demande Numéro test</h4>
+  </div>
+  <div class="modal-body" id="print" >
+    <app-consultation-impri></app-consultation-impri>
+  </div>
+  <div class="modal-footer " >
+    <div class="btn-group button-row2" role="group" aria-label="Basic example">
+      <button type="button" name="button" class="btn btn-success" (click)="t(id_docc,d)">
+        <i class="fa fa-print fa-fw"></i>Confirmer la validation
+      </button>
+      <button type="button" class="btn btn-primary" (click)="d('Cross click')">Annuler</button>
+    </div>
+  </div>
+</ng-template>
+
+
+<!-- valider la demande et imprimer -->
+
+<ng-template #content1 id="content1" let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">demande Numéro test</h4>
+  </div>
+  <div class="modal-body"  id="print">
+    <app-versement-impri></app-versement-impri>
+  </div>
+  <div class="modal-footer " >
+    <div class="btn-group button-row2" role="group" aria-label="Basic example">
+      <button type="button" name="button" class="btn btn-success" (click)="t(id_docc,d)">
+        <i class="fa fa-print fa-fw"></i>Confirmer la validation
+      </button>
+      <button type="button" class="btn btn-primary" (click)="d('Cross click')">Annuler</button>
+    </div>
+  </div>
+</ng-template>

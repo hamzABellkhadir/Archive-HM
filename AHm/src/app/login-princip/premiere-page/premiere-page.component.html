@@ -12,7 +12,9 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="spawn" >Se connecter</span>
+      <img src="../../../assets/img/user.png" class="mmm"style="margin-left: 20px">
+      <span class="spawn" >Se connecter</span><br>
+
     </mat-toolbar>
     <mat-nav-list>
       <app-form-login></app-form-login>
@@ -33,7 +35,7 @@
     </mat-toolbar>
     <br><br>
     <!-- Add Content Here -->
-
+    <app-nv-information></app-nv-information>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

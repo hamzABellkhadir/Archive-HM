@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormLoginserve} from "../ServiceLogin/fromLogin";
+import {ServiceAuthentification} from "../ServiceLogin/authentification.service";
+import {HttpClient} from "@angular/common/http";
+import {replaceNgsp} from "@angular/compiler/src/ml_parser/html_whitespaces";
 
 @Component({
   selector: 'app-form-login',
@@ -15,6 +18,6 @@ export class FormLoginComponent implements OnInit {
 
   hide= true;
   onSubmit(){
-    console.log(this.formLoginService.formLogin.value);
+    this.formLoginService.login(this.formLoginService.formLogin.value);
   }
 }

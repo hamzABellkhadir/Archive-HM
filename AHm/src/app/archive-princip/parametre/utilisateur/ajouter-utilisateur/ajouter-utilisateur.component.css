@@ -1,0 +1,12 @@
+.add-bottom-padding{
+  padding-bottom: 10px;
+}
+mat-table {
+  max-width: 800px;
+  margin: auto;
+
+}
+
+mat-header-cell{
+  background-color: #edf4ff;
+}

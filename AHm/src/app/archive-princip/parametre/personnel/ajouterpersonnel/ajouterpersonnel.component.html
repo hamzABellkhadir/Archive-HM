@@ -1,0 +1,313 @@
+<mat-toolbar>
+  <span>{{!AM?"Modifiere un Personnel":"Ajouter un Personnel"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<br>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="formarchive.form">
+    <form [formGroup]="formarchive.form">
+      <ng-template matStepLabel>Personalle Information</ng-template>
+
+      <mat-grid-list cols="3" rowHeight="600px" >
+        <mat-grid-tile>
+
+
+          <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
+
+
+            <img [src]="imageUrl"  style="width:250px;height:200px; border: 1px; margin-top:20px ">
+            <button mat-raised-button color="primary" (click)="fileInput.click()">
+              <input #fileInput type="file" (change)="handleFileInput($event.target.files);onFileInput($event)"  style="display:none;" accept="image/*" />
+              Choisir une image
+            </button>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+
+
+          <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
+
+
+            <mat-form-field *ngIf="AM" >
+              <input formControlName="id"    matInput  placeholder="№ CNI*"  >
+            </mat-form-field><br>
+
+
+            <mat-form-field >
+              <input formControlName="prenom_personnel"  matInput  placeholder="Prenom*" >
+            </mat-form-field><br>
+            <mat-form-field >
+              <input formControlName="nom_personnel"  matInput  placeholder="Nom*" >
+            </mat-form-field><br>
+            <mat-form-field >
+              <input formControlName="ville_naissance"  matInput  placeholder="Ville de naissance*" >
+              <mat-hint align="end">Oujda/...</mat-hint>
+            </mat-form-field><br>
+
+            <mat-form-field >
+              <input formControlName="nationalite"  matInput  placeholder="Nationalite*" >
+            </mat-form-field><br>
+            <mat-form-field >
+              <input formControlName="situation_familiale"  matInput  placeholder="Situation familiale*" >
+            </mat-form-field><br>
+
+
+
+
+
+          </div>
+
+
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="controles "  style="margin-top: 0px; margin-left: 2%;margin-right: 9%;">
+
+
+
+
+
+
+            <mat-form-field >
+              <input formControlName="adresse"  matInput  placeholder="Adresse*" >
+            </mat-form-field><br>
+            <mat-form-field >
+              <input formControlName="ville"  matInput  placeholder="Ville*" >
+            </mat-form-field><br>
+
+
+            <mat-form-field >
+              <input formControlName="email"  matInput  placeholder="Adresse Email*" >
+              <mat-hint align="end">Email</mat-hint>
+              <mat-error>Email invalide</mat-error>
+            </mat-form-field><br>
+
+            <mat-form-field >
+              <input formControlName="tel"  matInput  placeholder="№ Telephone*" >
+              <mat-error *ngIf="formarchive.form.controls['tel'].errors?.minlength">minimum 10 caractère</mat-error>
+              <mat-hint align="end">06**/05**</mat-hint>
+            </mat-form-field><br>
+
+
+            <mat-form-field >
+              <input formControlName="type_engagement"  matInput  placeholder="Type d'engagement*" >
+            </mat-form-field><br>
+
+            <mat-form-field >
+              <input formControlName="budget"  matInput  placeholder="Budget*" >
+            </mat-form-field><br>
+            <div>
+              <button mat-raised-button color="primary" style="width: 100px" matStepperNext color="primary">Suivant</button>
+            </div>
+
+          </div>
+        </mat-grid-tile>
+
+
+
+      </mat-grid-list>
+    </form>
+
+  </mat-step>
+  <mat-step [stepControl]="formarchive.form">
+    <form [formGroup]="formarchive.form">
+      <ng-template matStepLabel>Cariere INformation</ng-template>
+
+      <mat-grid-list cols="3" rowHeight="550px" >
+
+
+        <mat-grid-tile>
+          <div class="controles "  style="margin-top: 0px; margin-left: 2%;margin-right: 9%;">
+
+
+
+            <mat-form-field >
+              <input formControlName="fonction_exercee"  matInput  placeholder="Fonction exercee*" >
+            </mat-form-field><br>
+            <mat-form-field >
+              <input formControlName="compte_bancaire"  matInput  placeholder="№ compte bancaire*" >
+            </mat-form-field><br>
+
+
+            <mat-form-field >
+              <input formControlName="grade"  matInput  placeholder="Grade*" >
+            </mat-form-field><br>
+            <mat-form-field >
+              <input formControlName="num_ppr"  matInput  placeholder="num_ppr*" >
+            </mat-form-field><br>
+
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="controles "  style="margin-top: 0px; margin-left: 2%;margin-right: 9%;">
+
+
+
+            <mat-form-field >
+              <input formControlName="agence_bancaire"  matInput  placeholder="Agence bancaire*" >
+            </mat-form-field><br>
+            <mat-form-field >
+              <input formControlName="niveau_etude"  matInput  placeholder="Niveau d'étude*" >
+              <mat-hint align="end">bac/...</mat-hint>
+            </mat-form-field><br>
+
+            <mat-form-field >
+              <input formControlName="diplome"  matInput  placeholder="Diplome*" >
+            </mat-form-field><br>
+
+
+
+            <mat-form-field >
+              <input formControlName="specialite"  matInput  placeholder="Specialité*" >
+            </mat-form-field><br>
+
+
+          </div>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile>
+          <div class="controles "  style="margin-top: 0px; margin-left: 2%;margin-right: 9%;">
+
+
+
+            <mat-form-field >
+              <input formControlName="date_obtention_diplome"  [matDatepicker]="picker"   matInput placeholder="Date d'obtention de diplome*" >
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field><br>
+
+            <mat-form-field >
+              <input formControlName="date_naissances" [matDatepicker]="picker1"   matInput placeholder="Date de naissances*" >
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field><br>
+
+
+            <mat-form-field >
+              <input formControlName="date_entre"  [matDatepicker]="picker2"   matInput placeholder="Date d'entre*" >
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field><br>
+
+            <mat-form-field >
+              <input formControlName="date_arrivee_cri"  [matDatepicker]="picker3"   matInput placeholder="Date d'arrivee a cri*" >
+              <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field><br>
+
+            <div class="button-row">
+              <button mat-raised-button color="primary" style="width: 100px" matStepperPrevious>Retour</button>
+              <button mat-raised-button color="primary" style="width: 100px" matStepperNext color="primary">Suivant</button>
+            </div>
+
+
+
+          </div>
+        </mat-grid-tile>
+
+
+      </mat-grid-list>
+
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="formarchive.form">
+    <form [formGroup]="formarchive.form">
+      <ng-template matStepLabel>Service </ng-template>
+
+      <mat-grid-list cols="2" rowHeight="600px" >
+
+        <mat-grid-tile>
+
+          <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
+
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+
+            <div class="mat-elevation-z8">
+            <mat-table [dataSource]="dataSource" matSort matSortActive="nom_service" matSortDirection="asc" >
+
+              <ng-container class="matt" matColumnDef="nom_service">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Nom Service</mat-header-cell>
+                <mat-cell *matCellDef="let docc" >{{docc.nom_service}}</mat-cell>
+              </ng-container>
+
+              <ng-container class="matt" matColumnDef="nom_division">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Nom Division</mat-header-cell>
+                <mat-cell *matCellDef="let docc" >{{docc.division.nom_division}}
+                </mat-cell>
+              </ng-container>
+
+              <ng-container class="matt" matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>ID service</mat-header-cell>
+                <mat-cell *matCellDef="let docc">{{docc.id}}</mat-cell>
+              </ng-container>
+
+
+
+              <ng-container class="matt" matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef> Plus de détails </mat-header-cell>
+
+                <mat-cell *matCellDef="let docc">
+                  <button (click)="openDialog(docc.id,docc.nom_service)" mat-raised-button color="primary">
+                    Choisir
+                  </button>
+
+                </mat-cell>
+              </ng-container>
+
+
+              <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+              <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
+
+            </div>
+
+          </div>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile>
+
+          <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
+
+            <mat-form-field >
+              <div>
+                <input *ngIf="nomService != null"  [value]="nomService"   matInput  placeholder="Nom Service choisi*"  >
+                <input *ngIf="nomService == null"    matInput  placeholder="Nom Service choisi*"  >
+
+              </div>
+
+            </mat-form-field><br>
+            <input formControlName="idservice"    matInput  placeholder="Id Service*" hidden >
+          </div>
+          <div class="button-row" >
+            <button mat-raised-button  style="width: 100px"  matStepperPrevious>Retour</button>
+
+            <button mat-raised-button color="primary" *ngIf="AM" style="width: 100px" [disabled]="formarchive.form.invalid" (click)="ajouter_personnel(formarchive.form.value)" >Envoyer</button>
+
+            <button mat-raised-button color="primary" *ngIf="!AM"
+                    style="width: 100px" [disabled]="formarchive.form.invalid" (click)="modifier_personnel(formarchive.form.value)" >Modifier</button>
+
+            <button mat-raised-button color="warn"  (click)="onClear()">Rénitialiser</button>
+          </div>
+        </mat-grid-tile>
+
+
+
+
+      </mat-grid-list>
+    </form>
+  </mat-step>
+
+</mat-horizontal-stepper>
+<!--(change)="onFileInput($event)"-->
+
+
+<!--[disabled]="formarchive.form.invalid"-->

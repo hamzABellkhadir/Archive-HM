@@ -1,0 +1,79 @@
+<mat-toolbar>
+  <span>{{!AM?"Modifiere un Service":"Ajouter un Service"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose1()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="serviceds.formService" class="normal-form" >
+  <mat-grid-list cols="2" rowHeight="400px">
+
+    <mat-grid-tile>
+
+<div>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+
+      <div class="mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort matSortActive="nom_division" matSortDirection="asc" >
+
+          <ng-container class="matt" matColumnDef="nom_division">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>N CNI</mat-header-cell>
+            <mat-cell *matCellDef="let docc" >{{docc.nom_division}}</mat-cell>
+          </ng-container>
+
+          <ng-container class="matt" matColumnDef="details">
+            <mat-header-cell *matHeaderCellDef> Plus de détails </mat-header-cell>
+
+            <mat-cell *matCellDef="let docc">
+              <button (click)="openDialog(docc)" mat-raised-button color="primary">
+                Choisir
+              </button>
+
+            </mat-cell>
+          </ng-container>
+
+
+          <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+          <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[2, 4]"></mat-paginator>
+
+      </div><br><br>
+</div>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile>
+
+
+      <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
+        <mat-form-field >
+        <div>
+          <input *ngIf="nomdiv != null"  [value]="nomdiv"   matInput  placeholder="Nom de division choisi*"  >
+          <input *ngIf="nomdiv == null"    matInput  placeholder="Nom de division choisi*"  >
+
+        </div>
+        </mat-form-field><br>
+
+
+
+          <input formControlName="idDivision"  matInput   hidden>
+
+
+        <mat-form-field >
+          <input formControlName="nom_service"  matInput  placeholder="Nom Service*" >
+        </mat-form-field><br>
+
+        <div class="button-row">
+
+          <button mat-raised-button color="primary" *ngIf="AM"  [disabled]="serviceds.formService.invalid" (click)="ajouter_service(serviceds.formService.value)" >Envoyer</button>
+          <button mat-raised-button color="primary" *ngIf="!AM" [disabled]="serviceds.formService.invalid" (click)="modifier_service(serviceds.formService.value)" >modifier</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Supprimer</button>
+        </div>
+
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</form>

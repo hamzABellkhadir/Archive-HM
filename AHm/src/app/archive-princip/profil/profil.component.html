@@ -1,0 +1,41 @@
+
+ <mat-card [class.mat-elevation-z6]="isActive">
+   <mat-card-header >
+     <mat-card-title><span class="text-capitalize">{{x?.prenom_personnel}}</span><span class="text-uppercase"> {{x?.nom_personnel}}</span></mat-card-title>
+   </mat-card-header>
+
+   <mat-divider></mat-divider>
+
+
+   <mat-card-content>
+     <div style="float: left ;height: 320px;">
+       <img class="pho" style="background-size: cover; width: 300px" mat-card-image *ngIf="x?.photo!==null" src="../../../assets/img/{{x?.photo}}">
+       <img class="pho" style="background-size: cover; width: 300px" mat-card-image *ngIf="x?.photo==null" src="../../../assets/img/user.png">
+
+     </div>
+
+     <div class="di">
+
+       <mat-list role="list">
+         <mat-list-item role="listitem"><mat-icon color="primary">person</mat-icon><span style="color:#00008B" class=" border-bottom divi"><b>№ CNI:</b></span> <span>{{x?.id}}</span> </mat-list-item>
+         <mat-list-item role="listitem"><mat-icon color="primary"> event_note</mat-icon><span style="color:#00008B" class=" border-bottom "><b>Service:</b></span> <span class="text-uppercase">  {{x?.service.nom_service}}</span> </mat-list-item>
+         <mat-list-item role="listitem"><mat-icon color="primary">event_note </mat-icon><span style="color:#00008B" class=" border-bottom "><b>Division:</b></span> <span>{{x?.service.division.nom_division}}</span></mat-list-item>
+         <mat-list-item role="listitem"><mat-icon color="primary"> account_balance_wallet</mat-icon><span style="color:#00008B" class=" border-bottom "><b>№ Bancaire:</b></span> <span class="text-uppercase">  {{x?.compte_bancaire}}</span></mat-list-item>
+         <mat-list-item role="listitem"><mat-icon color="primary"> location_on</mat-icon><span style="color:#00008B" class=" border-bottom "><b>Adresse:</b></span><span class="text-uppercase">  {{x?.adresse}}</span></mat-list-item>
+         <mat-list-item role="listitem"><mat-icon color="primary"> email</mat-icon><span style="color:#00008B" class=" border-bottom "><b>E-mail:</b></span> <span class="text-uppercase">  {{x?.email}}</span></mat-list-item>
+         <mat-list-item role="listitem"><mat-icon color="primary"> dialpad</mat-icon><span style="color:#00008B" class=" border-bottom "><b>Tel:</b></span><span class="text-uppercase">  {{x?.tel}}</span></mat-list-item>
+
+       </mat-list>
+
+
+     </div>
+
+   </mat-card-content>
+   <!--<mat-card-actions>
+      <button mat-button color="primary"><mat-icon> create </mat-icon> Modifier </button>
+   </mat-card-actions>-->
+ </mat-card>
+
+
+
+

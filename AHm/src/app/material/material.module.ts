@@ -35,7 +35,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatNativeDateModule} from "@angular/material";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -86,8 +87,8 @@ import {RouterModule} from "@angular/router";
 
 
     HttpClientModule,
-    RouterModule
-
+    RouterModule,
+    NgbModule,NgbPaginationModule, NgbAlertModule
 
 
 
@@ -132,7 +133,8 @@ import {RouterModule} from "@angular/router";
     MatBadgeModule,
 
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    NgbModule,NgbPaginationModule, NgbAlertModule
   ],
 })
 export class MaterialModule { }

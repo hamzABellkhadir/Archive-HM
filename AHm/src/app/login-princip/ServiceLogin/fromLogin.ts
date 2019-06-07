@@ -3,6 +3,8 @@ import {Injectable} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {NotificationUService} from "./NotificationU";
+import {ServiceAuthentification} from "./authentification.service";
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 
 @Injectable({
@@ -10,48 +12,94 @@ import {NotificationUService} from "./NotificationU";
 })
 export class FormLoginserve {
 
-  constructor(private http: HttpClient ,   public router : Router, private notification :NotificationUService) { }
+  constructor(private http: HttpClient ,   public router : Router, private notification :NotificationUService,
+             private  servautho : ServiceAuthentification) { }
+
+
 
   formLogin : FormGroup = new FormGroup({
-    username: new FormControl('',Validators.required),
-    mdp: new FormControl('',Validators.required)
+    pseudo: new FormControl('',Validators.required),
+    mot_pass: new FormControl('',Validators.required)
   });
 
     initialisation(){
       this.formLogin.setValue({
-        username: '',
-        mdp:''
+        pseudo: '',
+        mot_pass:''
       });
     }
+  jwt;
+
   login(user){
-      /*
-    this.etudserve.chercherEtudiant(user.username,user.mdp)
-      .subscribe(data => {
-          if(data != null) {
-                this.router.navigateByUrl('/main');
-                localStorage.setItem('username', user.username);
-          }else{
-            this.etudserve.chercherAdmine(user.username,user.mdp)
-              .subscribe(data => {
-                  if(data != null) {
-                    this.router.navigateByUrl('/scolarite');
-                    localStorage.setItem('admin', user.username);
-                  }
-                  else this.notification.success("Veuillez resaisir votre Pseudo et mot de passe pour s'identifier");
-
-                },error1 => {
-                  console.log(error1);
-
-                }
-              );
-          }
-        },error1 => {
-          console.log(error1);
-
-        }
-      );
-*/
+      this.servautho.loginn(user).
+      subscribe(data=>{
+        this.jwt = data.headers.get('Authorization');
+        this.jwtSaveAuthontification(this.jwt);
+        this.router.navigateByUrl('/menu')
+      }, error1 => {
+        this.notification.success("Veuillez resaisir votre Pseudo et mot de passe pour s'identifier");
+      });
 
   }
 
+  jwtSaveAuthontification(jwt){
+    localStorage.setItem('token',jwt);
+    this.parseJWT(jwt);
+  }
+
+  parseJWT(jwt){
+    let jwtHelper = new JwtHelperService();
+    try {
+      let jwtObject = jwtHelper.decodeToken(jwt);
+      return jwtObject;
+    }catch (e) {
+      this.logout();
+    }
+    return null;
+  }
+  isAdmin(jwt){
+    let bol = true;
+    if(this.parseJWT(jwt) === null) bol = false;
+    else if(!(this.parseJWT(jwt).roles.indexOf("ADMIN") >= 0)){
+      bol =false;
+    }
+    return bol;
+  }
+  isUser(jwt){
+    let bol = true;
+    if(this.parseJWT(jwt) === null) bol = false;
+    else if(!(this.parseJWT(jwt).roles.indexOf("USER") >= 0)){
+      bol =false;
+    }
+    return bol;
+  }
+  isAutontificated(jwt){
+    let bol = true;
+    if(jwt === null){
+      bol =false;
+    }
+    return bol && (this.isAdmin(jwt) || this.isUser(jwt));
+  }
+
+
+  IsUserLogedOut(jwt){
+    if(!this.isAutontificated(jwt)){
+      this.router.navigateByUrl('');
+    }
+
+  }
+  IsUserLogedOin(jwt){
+    if(this.isAutontificated(jwt)){
+      this.router.navigateByUrl('/menu');
+    }
+
+  }
+
+
+  logout(){
+    this.router.navigateByUrl('/');
+    localStorage.removeItem("token");
+  }
 }
+/*    this.cni = jwtObject.sub;
+    this.roles = jwtObject.roles;*/

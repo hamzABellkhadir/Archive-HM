@@ -1,0 +1,125 @@
+<mat-toolbar>
+  <span>{{!AM?"Modifiere un Utilisateur":"Ajouter un Utilisateur"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="serviceAdmin.formAdmin" class="normal-form" >
+  <mat-grid-list cols="2" rowHeight="600px">
+
+    <mat-grid-tile>
+
+
+      <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
+
+
+
+        <mat-form-field >
+          <input formControlName="pseudo"  matInput  placeholder="Pseudo*" >
+        </mat-form-field><br>
+
+
+
+        <mat-form-field >
+          <input formControlName="mot_pass"  matInput  placeholder="Mot de pass*" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix class="clickcable" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field><br>
+
+        <mat-form-field >
+          <input formControlName="confirmedPassword"  matInput  placeholder="confirmer votre mot de pass*" [type]="hide1 ? 'password' : 'text'" >
+          <mat-icon matSuffix class="clickcable" (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field><br>
+
+
+        <mat-form-field>
+          <mat-select formControlName="role1" placeholder="role">
+            <mat-option>None</mat-option>
+            <ng-container *ngFor="let role of roles">
+              <mat-option value="{{role.id}}">{{role.value}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="controles "  style="margin-top: 12%; margin-left: 2%;margin-right: 9%;">
+
+
+
+
+
+
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+
+          <div class="mat-elevation-z8">
+            <mat-table [dataSource]="dataSource" matSort matSortActive="id" matSortDirection="asc" >
+
+              <ng-container class="matt" matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>N CNI</mat-header-cell>
+                <mat-cell *matCellDef="let docc" >{{docc.id}}</mat-cell>
+              </ng-container>
+
+              <ng-container class="matt" matColumnDef="nom_personnel">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Nom </mat-header-cell>
+                <mat-cell *matCellDef="let docc" >{{docc.nom_personnel}}
+                </mat-cell>
+              </ng-container>
+
+              <ng-container class="matt" matColumnDef="prenom_personnel">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>ID service</mat-header-cell>
+                <mat-cell *matCellDef="let docc">{{docc.prenom_personnel}}</mat-cell>
+              </ng-container>
+
+
+
+              <ng-container class="matt" matColumnDef="details">
+                <mat-header-cell *matHeaderCellDef> Plus de détails </mat-header-cell>
+
+                <mat-cell *matCellDef="let docc">
+                  <button (click)="openDialog(docc.id)" mat-raised-button color="primary">
+                    Choisir
+                  </button>
+
+                </mat-cell>
+              </ng-container>
+
+
+              <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+              <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[2, 4]"></mat-paginator>
+
+          </div><br><br>
+
+
+        <mat-form-field >
+          <input formControlName="cni"  matInput  placeholder="CNI*" >
+        </mat-form-field><br>
+
+        <div class="add-bottom-padding">
+          <mat-checkbox formControlName="actived">Activer l'utilisateur</mat-checkbox>
+        </div>
+
+        <div class="button-row">
+
+          <button mat-raised-button color="primary" *ngIf="AM"  [disabled]="serviceAdmin.formAdmin.invalid" (click)="ajouter_user(serviceAdmin.formAdmin.value)" >Envoyer</button>
+          <button mat-raised-button color="primary" *ngIf="!AM" [disabled]="serviceAdmin.formAdmin.invalid" (click)="modifier_user(serviceAdmin.formAdmin.value)" >modifier</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Supprimer</button>
+        </div>
+
+      </div>
+
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+
+<!-- [disabled]="serviceAdmin.formAdmin.invalid"-->
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormLoginserve} from "../login-princip/ServiceLogin/fromLogin";
 
 @Component({
   selector: 'app-archive-princip',
@@ -10,6 +11,7 @@ export class ArchivePrincipComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

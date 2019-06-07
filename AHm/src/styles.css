@@ -67,3 +67,18 @@ snack-bar-container.notification simple-snack-bar{
   line-height: 1.5;
   font-family: Roboto,"Helvetica Neue",sans-serif;
 }
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+/* for dialog pop-up */
+.btn-dialog-close{
+  float: left;
+  width: 45px;
+  min-width: 0px !important;
+  height: 40px;
+  padding: 0px !important;
+}

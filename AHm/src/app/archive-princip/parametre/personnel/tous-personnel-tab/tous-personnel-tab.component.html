@@ -1,0 +1,107 @@
+<div>
+
+  <button (click)="Ajouterpopup()" mat-raised-button>
+    <mat-icon>add</mat-icon>
+    Ajouter
+  </button>
+
+  <mat-form-field style="width: 300px ;padding-left: 3%;">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Rechercher">
+  </mat-form-field>
+</div>
+  <div class="mat-elevation-z8" >
+    <mat-table [dataSource]="dataSource" matSort matSortActive="nom_personnel" matSortDirection="asc" >
+
+      <ng-container class="matt" matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>CNI</mat-header-cell>
+        <mat-cell *matCellDef="let docc" >{{docc.id}}</mat-cell>
+      </ng-container>
+
+      <ng-container class="matt" matColumnDef="nom_personnel">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Nom personnel</mat-header-cell>
+        <mat-cell *matCellDef="let docc" >{{docc.nom_personnel}}</mat-cell>
+      </ng-container>
+
+
+
+      <ng-container class="matt" matColumnDef="prenom_personnel">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Prénom personnel</mat-header-cell>
+        <mat-cell *matCellDef="let docc" >{{docc.prenom_personnel}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container class="matt" matColumnDef="adresse">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Adresse</mat-header-cell>
+        <mat-cell *matCellDef="let docc">{{docc.adresse}}</mat-cell>
+      </ng-container>
+
+      <ng-container class="matt" matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>E-mail</mat-header-cell>
+        <mat-cell *matCellDef="let docc">{{docc.email}}</mat-cell>
+      </ng-container>
+
+      <ng-container class="matt" matColumnDef="tel">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Téléphone</mat-header-cell>
+        <mat-cell *matCellDef="let docc">{{docc.tel}}</mat-cell>
+      </ng-container>
+
+
+
+
+
+
+
+
+      <ng-container class="matt" matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+
+
+
+        <mat-cell *matCellDef="let docc">
+
+          <button mat-icon-button color="primary" (click)="onEdit(docc)"><mat-icon>launch</mat-icon></button>
+          <div style="margin: 2px"></div>
+          <button (click)="openD(docc);openBackDropCustomClass(content)" mat-raised-button color="accent">
+            <mat-icon>local_printshop</mat-icon>
+          </button>
+
+        </mat-cell>
+      </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+      <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+
+</div>
+
+<!-- valider la demande et imprimer -->
+
+<ng-template #content id="content" let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">demande Numéro {{pers.id}}</h4>
+  </div>
+  <div class="modal-body" id="print" >
+    <app-personnel-impri [personnel]="pers"  ></app-personnel-impri>
+  </div>
+  <div class="modal-footer " >
+    <div class="btn-group button-row2" role="group" aria-label="Basic example">
+      <button type="button" name="button" class="btn btn-success" (click)="t(id_docc,d)">
+        <i class="fa fa-print fa-fw"></i>Confirmer la validation
+      </button>
+      <button type="button" class="btn btn-primary" (click)="d('Cross click')">Annuler</button>
+    </div>
+  </div>
+</ng-template>
