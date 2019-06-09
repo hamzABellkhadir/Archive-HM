@@ -7,6 +7,9 @@ import {AjouterpersonnelComponent} from "./parametre/personnel/ajouterpersonnel/
 import {ParametreComponent} from "./parametre/parametre.component";
 import {DivisionServiceComponent} from "./parametre/division-service/division-service.component";
 import {UtilisateurComponent} from "./parametre/utilisateur/utilisateur.component";
+import {ArchiveVerseeComponent} from "./archive/archive-versee/archive-versee.component";
+import {ArchiveConsulterComponent} from "./archive/archive-consulter/archive-consulter.component";
+import {ArchiveFDSComponent} from "./archive/archive-fds/archive-fds.component";
 
 
 const routes:Routes = [
@@ -22,6 +25,9 @@ const routes:Routes = [
           {path : 'utilisateur', component : UtilisateurComponent}
         ]
       } ,
+      { path: 'archive', component: ArchiveVerseeComponent },
+      { path: 'archiveSR', component: ArchiveConsulterComponent },
+      { path: 'notification', component: ArchiveFDSComponent },
 
       ]
   }

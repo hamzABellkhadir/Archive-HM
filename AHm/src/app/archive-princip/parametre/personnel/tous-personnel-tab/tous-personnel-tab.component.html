@@ -72,6 +72,24 @@
 
 
 
+      <!-- valider la demande et imprimer -->
+
+      <ng-template #content id="content" let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">demande Numéro {{pers.id}}</h4>
+        </div>
+        <div class="modal-body" id="print" >
+          <app-personnel-impri [personnel]="pers"  ></app-personnel-impri>
+        </div>
+        <div class="modal-footer " >
+          <div class="btn-group button-row2" role="group" aria-label="Basic example">
+            <button type="button" name="button" class="btn btn-success" (click)="t(id_docc,d)">
+              <i class="fa fa-print fa-fw"></i>Confirmer la validation
+            </button>
+            <button type="button" class="btn btn-primary" (click)="d('Cross click')">Annuler</button>
+          </div>
+        </div>
+      </ng-template>
 
 
 
@@ -86,22 +104,3 @@
     <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
 
 </div>
-
-<!-- valider la demande et imprimer -->
-
-<ng-template #content id="content" let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">demande Numéro {{pers.id}}</h4>
-  </div>
-  <div class="modal-body" id="print" >
-    <app-personnel-impri [personnel]="pers"  ></app-personnel-impri>
-  </div>
-  <div class="modal-footer " >
-    <div class="btn-group button-row2" role="group" aria-label="Basic example">
-      <button type="button" name="button" class="btn btn-success" (click)="t(id_docc,d)">
-        <i class="fa fa-print fa-fw"></i>Confirmer la validation
-      </button>
-      <button type="button" class="btn btn-primary" (click)="d('Cross click')">Annuler</button>
-    </div>
-  </div>
-</ng-template>

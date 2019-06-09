@@ -8,10 +8,12 @@ import {Component, Input, OnInit} from "@angular/core";
 export class PersonnelImpriComponent implements OnInit {
 
   @Input() personnel;
+  imageUrl: string;
   constructor() { }
-
   ngOnInit() {
-    console.log(this.personnel)
+    console.log(this.personnel);
+    this.imageUrl = "../../../assets/img/img-personnel/"+this.personnel.photo;
   }
+
 
 }

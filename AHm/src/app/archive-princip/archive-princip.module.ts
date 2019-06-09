@@ -19,6 +19,10 @@ import { PersonnelImpriComponent } from './parametre/personnel/tous-personnel-ta
 import { ArchiveVerseeComponent } from './archive/archive-versee/archive-versee.component';
 import { ArchiveConsulterComponent } from './archive/archive-consulter/archive-consulter.component';
 import { AjouterAchivevComponent } from './archive/archive-versee/ajouter-achivev/ajouter-achivev.component';
+import { AjouterAchivecComponent } from './archive/archive-versee/ajouter-achivec/ajouter-achivec.component';
+import { AjouterASEEComponent } from './archive/archive-consulter/ajouter-asee/ajouter-asee.component';
+import { ArchiveFDSComponent } from './archive/archive-fds/archive-fds.component';
+import { PersonnelInfoComponent } from './archive/personnel-info/personnel-info.component';
 
 @NgModule({
   imports: [
@@ -35,6 +39,10 @@ import { AjouterAchivevComponent } from './archive/archive-versee/ajouter-achive
     ArchiveVerseeComponent,
     ArchiveConsulterComponent,
     AjouterAchivevComponent,
+    AjouterAchivecComponent,
+    AjouterASEEComponent,
+    ArchiveFDSComponent,
+    PersonnelInfoComponent,
 
   ],
   providers: [DatePipe],

@@ -1,3 +1,76 @@
-<p>
-  ajouter-achivev works!
-</p>
+<mat-toolbar>
+  <span>{{!AM?"Modifiere un Archive":"Ajouter un Archive"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="formarchives.formArchive" class="normal-form" >
+  <mat-grid-list cols="2" rowHeight="600px">
+
+    <mat-grid-tile>
+
+
+      <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
+
+
+        <img [src]="imageUrl"  style="width:250px;height:200px; border: 1px; margin-top:20px ;margin-bottom: 5px">
+        <button mat-raised-button color="primary" (click)="fileInput.click()">
+          <input #fileInput type="file" (change)="handleFileInput($event.target.files);onFileInput($event)"  style="display:none;" accept="image/*" />
+          Choisir une image
+        </button>
+      </div>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile>
+
+
+      <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
+
+
+
+        <mat-form-field >
+          <input formControlName="reference_boite"  matInput  placeholder="Reference Boite" required>
+        </mat-form-field><br>
+
+
+        <mat-form-field >
+          <input formControlName="referencedossier"  matInput  placeholder="Reference de Dossier" required >
+        </mat-form-field><br>
+
+        <mat-form-field >
+          <input formControlName="observation"  matInput  placeholder="Observation" required>
+        </mat-form-field><br>
+        <mat-form-field >
+          <input formControlName="nom_projet"  matInput  placeholder="Nom Projet" required>
+        </mat-form-field><br>
+
+        <mat-form-field >
+          <input formControlName="raison_social"  matInput  placeholder="Raison Social" required>
+        </mat-form-field><br>
+
+        <mat-form-field >
+          <input formControlName="localisation"  matInput  placeholder="Localisation" required>
+        </mat-form-field><br>
+
+
+
+        <div class="button-row">
+
+          <button mat-raised-button color="primary" *ngIf="AM" [disabled]="formarchives.formArchive.invalid"
+                  (click)="ajouter_ArchiveEX(formarchives.formArchive.value)" >Envoyer</button>
+          <button mat-raised-button color="primary" *ngIf="!AM" [disabled]="formarchives.formArchive.invalid"
+                  (click)="modifier_ArchiveEX(formarchives.formArchive.value)" >modifier</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Supprimer</button>
+        </div>
+
+
+      </div>
+
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</form>
+
+<!-- [disabled]="formarchives.formArchive.invalid"-->
+

@@ -1,0 +1,41 @@
+<mat-toolbar>
+  <span>Recuperer un Archive</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="formarchives.formArchive" class="normal-form" >
+  <mat-grid-list cols="1" rowHeight="300px">
+
+    <mat-grid-tile>
+
+
+      <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
+
+
+        <mat-form-field >
+          <input formControlName="datefinrecuperation"  [matDatepicker]="picker"   matInput placeholder="Date  de Recuperation" required >
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field><br>
+
+
+
+        <div class="button-row">
+
+          <button mat-raised-button color="primary" *ngIf="AM" [disabled]="formarchives.formArchive.invalid"
+                  (click)="modifier_ArchiveSEE(formarchives.formArchive.value)" >Envoyer</button>
+          <button mat-raised-button color="primary" *ngIf="!AM" [disabled]="formarchives.formArchive.invalid"
+                  (click)="modifier_ArchiveFDS(formarchives.formArchive.value)" >modifier</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Supprimer</button>
+        </div>
+
+      </div>
+
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</form>
+
+<!-- [disabled]="formarchives.formArchive.invalid"-->
+

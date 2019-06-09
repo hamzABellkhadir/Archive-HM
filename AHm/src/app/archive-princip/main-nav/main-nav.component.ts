@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {fadeAnimation} from "./animation";
 import {FormLoginserve} from "../../login-princip/ServiceLogin/fromLogin";
+import {ArchiveService} from "../serviceArchive/archive.service";
 
 
 @Component({
@@ -29,7 +30,7 @@ export class MainNavComponent implements OnInit{
   private aaa: null;
 
   constructor(private http: HttpClient ,private breakpointObserver: BreakpointObserver
-              , public router : Router, private serviceLogin :FormLoginserve) {}
+              , public router : Router, private serviceLogin :FormLoginserve, private archiveServe : ArchiveService) {}
 
   logout(){
     this.router.navigateByUrl('/');
@@ -38,17 +39,17 @@ export class MainNavComponent implements OnInit{
 
   ngOnInit(): void {
     this.serviceLogin.IsUserLogedOut(localStorage.getItem('token'));
-    //this.number_doc();
+    this.number_doc();
   }
-/*
+
   count_doc;
   number_doc(){
-    this.etudserve.getDocuments(localStorage.getItem("username"))
-      .subscribe(data => {
-        this.count_doc = data;
-      })
+      this.archiveServe.getAllArchive("fds").subscribe(data=>{
+          this.count_doc = data;
+        })
   }
-*/
+
+
 
 
 }

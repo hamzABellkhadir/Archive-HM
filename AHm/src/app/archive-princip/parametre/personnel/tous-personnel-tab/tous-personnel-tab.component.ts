@@ -5,6 +5,8 @@ import {ArchiveService} from "../../../serviceArchive/archive.service";
 import {AjouterpersonnelComponent} from "../ajouterpersonnel/ajouterpersonnel.component";
 import {ArchiveFormService} from "../../../serviceArchive/archive-form.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {PersonnelInfoComponent} from "../../../archive/personnel-info/personnel-info.component";
+import {ArchiveForm2Service} from "../../../serviceArchive/archive-form2.service";
 
 declare function printData() : any;
 @Component({

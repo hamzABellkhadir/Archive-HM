@@ -10,13 +10,13 @@
       <mat-list>
         <mat-list-item routerLink=""> <mat-icon color="primary"> home</mat-icon> Accueil </mat-list-item>
         <mat-list-item> <mat-icon color="primary"> archive</mat-icon> Archives </mat-list-item>
-        <mat-list-item routerLink="ADS" class=" souslist"> Versement aux archives </mat-list-item>
-        <mat-list-item routerLink="RDN" class="souslist"> Consultation des archives  </mat-list-item>
+        <mat-list-item routerLink="archive" class=" souslist"> Versement aux archives </mat-list-item>
+
+        <mat-list-item routerLink="archiveSR" class="souslist"> Consultation des archives  </mat-list-item>
         <mat-list-item routerLink="damandeStage" class="souslist"> Archives sorties </mat-list-item>
-        <mat-list-item routerLink="TMD" (click)="number_doc()">
-        <!-- <mat-icon color="primary" *ngIf="count_doc?.length !== 0"  matBadge={{count_doc?.length}}  matBadgeColor="accent" > notification  </mat-icon>
-          <mat-icon color="primary"  *ngIf="count_doc?.length == 0">notification</mat-icon> -->
-          <mat-icon color="primary" >notification_important</mat-icon>
+        <mat-list-item routerLink="notification" (click)="number_doc()">
+         <mat-icon color="primary" *ngIf="count_doc?.length !== 0"  matBadge={{count_doc?.length}}  matBadgeColor="warn" > notification_important  </mat-icon>
+          <mat-icon color="primary"   *ngIf="count_doc?.length == 0">notification_important</mat-icon>
           Notification</mat-list-item>
 
         <mat-list-item routerLink="Parametre" > <mat-icon color="primary" >settings</mat-icon>Paramètre </mat-list-item>

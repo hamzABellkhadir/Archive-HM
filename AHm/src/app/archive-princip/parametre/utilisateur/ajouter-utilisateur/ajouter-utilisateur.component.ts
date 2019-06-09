@@ -60,7 +60,6 @@ export class AjouterUtilisateurComponent implements OnInit {
       },error=>{
         console.log(error)
       }
-
     )
   }
 

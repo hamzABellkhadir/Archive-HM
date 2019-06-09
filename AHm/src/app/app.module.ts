@@ -9,6 +9,10 @@ import {AjouterpersonnelComponent} from "./archive-princip/parametre/personnel/a
 import {AjouterUtilisateurComponent} from "./archive-princip/parametre/utilisateur/ajouter-utilisateur/ajouter-utilisateur.component";
 import {AjouterServiceComponent} from "./archive-princip/parametre/division-service/ajouter-service/ajouter-service.component";
 import {AjouterDivisionComponent} from "./archive-princip/parametre/division-service/ajouter-division/ajouter-division.component";
+import {AjouterAchivevComponent} from "./archive-princip/archive/archive-versee/ajouter-achivev/ajouter-achivev.component";
+import {AjouterAchivecComponent} from "./archive-princip/archive/archive-versee/ajouter-achivec/ajouter-achivec.component";
+import {AjouterASEEComponent} from "./archive-princip/archive/archive-consulter/ajouter-asee/ajouter-asee.component";
+import {PersonnelInfoComponent} from "./archive-princip/archive/personnel-info/personnel-info.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import {AjouterDivisionComponent} from "./archive-princip/parametre/division-ser
 
 
   entryComponents : [AjouterpersonnelComponent,AjouterUtilisateurComponent
-    ,AjouterServiceComponent,AjouterDivisionComponent],// pour faire une poopUp il faut ajouter le compoasant
+    ,AjouterServiceComponent,AjouterDivisionComponent,
+    AjouterAchivevComponent,AjouterAchivecComponent,AjouterASEEComponent,PersonnelInfoComponent],// pour faire une poopUp il faut ajouter le compoasant
   providers: [],
   bootstrap: [AppComponent],
 })

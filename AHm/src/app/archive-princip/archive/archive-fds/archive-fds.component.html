@@ -1,0 +1,63 @@
+<div style=" height: 550px;  width: auto;">
+  <div>
+    <mat-form-field style="width: 300px ;padding-left: 3%;">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Rechercher">
+    </mat-form-field>
+  </div>
+
+
+  <div class="mat-elevation-z8" >
+    <mat-table [dataSource]="dataSource" matSort matSortActive="pseuso" matSortDirection="asc" >
+
+      <ng-container class="matt" matColumnDef="reference_boite">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>reference_boite</mat-header-cell>
+        <mat-cell *matCellDef="let docc" >{{docc.reference_boite}}</mat-cell>
+      </ng-container>
+
+
+      <ng-container class="matt" matColumnDef="referencedossier">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>referencedossier</mat-header-cell>
+        <mat-cell *matCellDef="let docc" >{{docc.referencedossier}}</mat-cell>
+      </ng-container>
+
+
+
+      <ng-container class="matt" matColumnDef="date_premier_rentrer">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>date_premier_rentrer</mat-header-cell>
+        <mat-cell *matCellDef="let docc" >{{datePipe.transform(docc.date_premier_rentrer, 'yyyy-MM-dd')}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container class="matt" matColumnDef="date_sortie">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>nom_projet</mat-header-cell>
+        <mat-cell *matCellDef="let docc">{{datePipe.transform(docc.date_sortie, 'yyyy-MM-dd')}}</mat-cell>
+      </ng-container>
+
+      <ng-container class="matt" matColumnDef="date_recuperation">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>localisation</mat-header-cell>
+        <mat-cell *matCellDef="let docc">{{datePipe.transform(docc.date_recuperation, 'yyyy-MM-dd')}}</mat-cell>
+      </ng-container>
+
+      <ng-container class="matt" matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+
+        <mat-cell *matCellDef="let docc">
+
+          <button mat-icon-button color="primary" (click)="onEditSEE(docc)"><mat-icon>play_for_work</mat-icon></button>
+          <div style="margin: 2px"></div>
+          <button mat-icon-button color="primary" (click)="Personnel_info(docc)"><mat-icon>add_circle_outline</mat-icon></button>
+        </mat-cell>
+
+
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>
+      <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[4, 8]" showFirstLastButtons></mat-paginator>
+
+  </div>
+
+</div>

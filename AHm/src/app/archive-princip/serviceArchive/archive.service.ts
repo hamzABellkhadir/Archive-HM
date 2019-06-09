@@ -83,4 +83,34 @@ export class ArchiveService {
     let headers = new HttpHeaders({'authorization':'Adan '+localStorage.getItem('token')});
     return this.http.put(this.host2+"serviceApps/"+value.id,value,{headers:headers});
   }
+
+
+
+  //--------------------------------------------------------------Archive
+  saveArchiveEx(value){
+    let headers = new HttpHeaders({'authorization':'Adan '+localStorage.getItem('token')});
+    return this.http.post(this.host2+"archives",value,{headers:headers});
+  }
+
+  updateArchiveEx(value){
+    let headers = new HttpHeaders({'authorization':'Adan '+localStorage.getItem('token')});
+    return this.http.put(this.host2+"archives/"+value.id,value,{headers:headers});
+  }
+
+  saveImgArchiveV(img){
+    let headers = new HttpHeaders({'authorization':'Adan '+localStorage.getItem('token')});
+    return this.http.post(this.host2 +"uploadArchiveV",img,{headers:headers});
+  }
+
+  saveImgArchiveC(img){
+    let headers = new HttpHeaders({'authorization':'Adan '+localStorage.getItem('token')});
+    return this.http.post(this.host2 +"uploadArchiveC",img,{headers:headers});
+  }
+
+  getAllArchive(etat){
+    let headers = new HttpHeaders({'authorization':'Adan '+localStorage.getItem('token')});
+    return this.http.get(this.host2+"archives/"+etat,{headers:headers});
+  }
+
+
 }

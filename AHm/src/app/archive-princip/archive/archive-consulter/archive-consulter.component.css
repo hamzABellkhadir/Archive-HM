@@ -1,0 +1,9 @@
+div {
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+mat-header-cell{
+  background-color: #edf4ff;
+}
