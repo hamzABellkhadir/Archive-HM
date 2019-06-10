@@ -112,5 +112,14 @@ export class ArchiveService {
     return this.http.get(this.host2+"archives/"+etat,{headers:headers});
   }
 
+  getAllArchives(){
+    let headers = new HttpHeaders({'authorization':'Adan '+localStorage.getItem('token')});
+    return this.http.get(this.host2+"archives",{headers:headers});
+  }
+
+  getAllArchiveP(id){
+    let headers = new HttpHeaders({'authorization':'Adan '+localStorage.getItem('token')});
+    return this.http.get(this.host2+"archivesP/"+id,{headers:headers});
+  }
 
 }

@@ -1,0 +1,123 @@
+
+  <table>
+    <tr>
+      <td>
+<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">Archive</div>
+  <div class="card-body">
+    <h5 class="card-title" *ngIf="count_doc?.length == 0">il n'y a aucune</h5>
+    <h5 class="card-title" *ngIf="count_doc?.length !== 0">{{count_doc?.length}}</h5>
+    <p class="card-text">Archive exist dans votre basse de donneé.</p>
+  </div>
+</div>
+      </td>
+      <td>
+<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+  <div class="card-header">Archive </div>
+  <div class="card-body">
+    <h5 class="card-title" *ngIf="count_fds?.length == 0">il n'y a aucune</h5>
+    <h5 class="card-title" *ngIf="count_fds?.length !== 0">{{count_fds?.length}}</h5>
+    <p class="card-text">Archives qui ont dépassé la date  précis de la recuperation .</p>
+  </div>
+</div>
+      </td><td>
+<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+  <div class="card-header">Archive</div>
+  <div class="card-body">
+    <h5 class="card-title" *ngIf="count_sr?.length == 0">il n'y a aucune</h5>
+    <h5 class="card-title" *ngIf="count_sr?.length !== 0">{{count_sr?.length}}</h5>
+    <p class="card-text">Archives contient  un état de sortie.</p>
+  </div>
+</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title" *ngIf="count_us?.length == 0">il n'y a aucune</h5>
+            <h5 class="card-title" *ngIf="count_us?.length !== 0">{{count_us?.length}}</h5>
+            <p class="card-text">Utilisateurs exist dans votre basse de donneé.</p>
+          </div>
+        </div>
+      </td>
+
+      <td [colSpan]="2">
+        <div class="card text-white bg-info mb-3" style="width: auto;">
+          <div class="card-header">Information Personnel</div>
+          <div class="card-body">
+            <h5 class="card-title" *ngIf="count_pr?.length == 0">il n'y a aucune</h5>
+            <h5 class="card-title" *ngIf="count_pr?.length !== 0">{{count_pr?.length}}</h5>
+            <p class="card-text">Personnels exist dans votre basse de donneé.</p>
+          </div>
+        </div>
+      </td>
+
+    </tr>
+
+
+    <tr>
+      <td></td>
+      <td >
+        <div class="card  bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">fichier </h5>
+            <p class="card-text">de consultation des Archive.</p>
+          </div>
+          <button mat-button color="primary" (click)="openBackDropCustomClass(content)"  class="card-footer" >Déposer!</button>
+        </div>
+      </td>
+      <td>
+        <div class="card  bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">fichier </h5>
+            <p class="card-text">de versemant aux archives.</p>
+          </div>
+          <button mat-button color="primary"  (click)="openBackDropCustomClass(content1)" class="card-footer" >Telecharger</button>
+        </div>
+      </td>
+    </tr>
+
+  </table>
+
+
+
+  <!-- valider la demande et imprimer -->
+
+  <ng-template #content id="content" let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">demande Numéro test</h4>
+    </div>
+    <div class="modal-body" id="print" >
+      <app-consultation-impri></app-consultation-impri>
+    </div>
+    <div class="modal-footer " >
+      <div class="btn-group button-row2" role="group" aria-label="Basic example">
+        <button type="button" name="button" class="btn btn-success" (click)="t(id_docc,d)">
+          <i class="fa fa-print fa-fw"></i>Confirmer la validation
+        </button>
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')">Annuler</button>
+      </div>
+    </div>
+  </ng-template>
+
+
+  <!-- valider la demande et imprimer -->
+
+  <ng-template #content1 id="content1" let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">demande Numéro test</h4>
+    </div>
+    <div class="modal-body"  id="print">
+      <app-versement-impri></app-versement-impri>
+    </div>
+    <div class="modal-footer " >
+      <div class="btn-group button-row2" role="group" aria-label="Basic example">
+        <button type="button" name="button" class="btn btn-success" (click)="t(id_docc,d)">
+          <i class="fa fa-print fa-fw"></i>Confirmer la validation
+        </button>
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')">Annuler</button>
+      </div>
+    </div>
+  </ng-template>

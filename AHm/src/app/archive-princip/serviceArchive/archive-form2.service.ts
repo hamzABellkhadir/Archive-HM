@@ -30,6 +30,15 @@ export class ArchiveForm2Service {
     datefinrecuperation: new FormControl(''),
   });
 
+  formPersArchi: FormGroup = new FormGroup({
+    id: new FormControl(''),
+  });
+  initialisation_PersArchi(value) {
+    this.formPersArchi.setValue({
+      id:value,
+    })
+  }
+
   initialisation_archive() {
     this.formArchive.setValue({
       id:null,

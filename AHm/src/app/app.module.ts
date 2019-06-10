@@ -13,6 +13,9 @@ import {AjouterAchivevComponent} from "./archive-princip/archive/archive-versee/
 import {AjouterAchivecComponent} from "./archive-princip/archive/archive-versee/ajouter-achivec/ajouter-achivec.component";
 import {AjouterASEEComponent} from "./archive-princip/archive/archive-consulter/ajouter-asee/ajouter-asee.component";
 import {PersonnelInfoComponent} from "./archive-princip/archive/personnel-info/personnel-info.component";
+import {ConsultationImpriComponent} from "./login-princip/nv-information/consultation-impri/consultation-impri.component";
+import {TabArchivePersonnelComponent} from "./archive-princip/archive/archive-versee/tab-archive-personnel/tab-archive-personnel.component";
+import {PersoInformaComponent} from "./archive-princip/archive/archive-versee/perso-informa/perso-informa.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import {PersonnelInfoComponent} from "./archive-princip/archive/personnel-info/p
 
   entryComponents : [AjouterpersonnelComponent,AjouterUtilisateurComponent
     ,AjouterServiceComponent,AjouterDivisionComponent,
-    AjouterAchivevComponent,AjouterAchivecComponent,AjouterASEEComponent,PersonnelInfoComponent],// pour faire une poopUp il faut ajouter le compoasant
+    AjouterAchivevComponent,AjouterAchivecComponent,
+    AjouterASEEComponent,PersonnelInfoComponent,TabArchivePersonnelComponent,PersoInformaComponent],// pour faire une poopUp il faut ajouter le compoasant
   providers: [],
   bootstrap: [AppComponent],
 })

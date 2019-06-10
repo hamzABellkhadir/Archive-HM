@@ -40,6 +40,7 @@ export class MainNavComponent implements OnInit{
   ngOnInit(): void {
     this.serviceLogin.IsUserLogedOut(localStorage.getItem('token'));
     this.number_doc();
+    this.router.navigateByUrl("menu/accueil");
   }
 
   count_doc;

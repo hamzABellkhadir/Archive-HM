@@ -9,6 +9,7 @@ import {ArchiveForm2Service} from "../../serviceArchive/archive-form2.service";
 import {DatePipe} from "@angular/common";
 import {AjouterAchivecComponent} from "./ajouter-achivec/ajouter-achivec.component";
 import {PersonnelInfoComponent} from "../personnel-info/personnel-info.component";
+import {TabArchivePersonnelComponent} from "./tab-archive-personnel/tab-archive-personnel.component";
 
 @Component({
   selector: 'app-archive-versee',
@@ -75,6 +76,11 @@ export class ArchiveVerseeComponent implements OnInit {
     });
   }
 
-
+  getPA(docc){
+    this.serviceArchive.initialisation_archive1(docc);
+    this.dialog.open(TabArchivePersonnelComponent,{
+      width: '1050px',
+    });
+  }
 
 }

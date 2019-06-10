@@ -10,6 +10,7 @@ import {UtilisateurComponent} from "./parametre/utilisateur/utilisateur.componen
 import {ArchiveVerseeComponent} from "./archive/archive-versee/archive-versee.component";
 import {ArchiveConsulterComponent} from "./archive/archive-consulter/archive-consulter.component";
 import {ArchiveFDSComponent} from "./archive/archive-fds/archive-fds.component";
+import {AccueilComponent} from "./accueil/accueil.component";
 
 
 const routes:Routes = [
@@ -29,6 +30,7 @@ const routes:Routes = [
       { path: 'archiveSR', component: ArchiveConsulterComponent },
       { path: 'notification', component: ArchiveFDSComponent },
 
+      {path: 'accueil', component: AccueilComponent},
       ]
   }
   ];
