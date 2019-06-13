@@ -75,9 +75,6 @@
       <!-- valider la demande et imprimer -->
 
       <ng-template #content id="content" let-c="close" let-d="dismiss">
-        <div class="modal-header">
-          <h4 class="modal-title">demande Numéro {{pers.id}}</h4>
-        </div>
         <div class="modal-body" id="print" >
           <app-personnel-impri [personnel]="pers"  ></app-personnel-impri>
         </div>

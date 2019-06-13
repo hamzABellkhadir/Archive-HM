@@ -1,0 +1,54 @@
+div mat-list{
+  width: 500px;
+}
+
+
+.aa{
+
+  width: auto;
+  text-align: center;
+}
+
+.mat-card{
+  max-width: 900px;
+
+  height: 450px;
+  margin: 10px auto;
+
+
+}
+
+
+
+
+div .pho{
+  border-radius: 200px;
+  margin: 10px;
+}
+
+
+
+
+.di{
+  height: 150px;
+  margin-top: 10px;
+  width: 300px;
+  float: left;
+
+}
+
+@media only screen and (max-width: 800px) {
+  .mat-card {
+    width: 360px;
+    height: 750px;
+  }
+  div mat-list{
+    width: 300px;
+  }
+
+}
+
+
+span{
+  margin-left: 10px;
+}

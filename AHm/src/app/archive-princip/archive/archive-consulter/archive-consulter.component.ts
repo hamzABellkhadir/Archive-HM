@@ -7,6 +7,7 @@ import {AjouterAchivevComponent} from "../archive-versee/ajouter-achivev/ajouter
 import {AjouterAchivecComponent} from "../archive-versee/ajouter-achivec/ajouter-achivec.component";
 import {AjouterASEEComponent} from "./ajouter-asee/ajouter-asee.component";
 import {PersonnelInfoComponent} from "../personnel-info/personnel-info.component";
+import {FormLoginserve} from "../../../login-princip/ServiceLogin/fromLogin";
 
 @Component({
   selector: 'app-archive-consulter',
@@ -15,7 +16,8 @@ import {PersonnelInfoComponent} from "../personnel-info/personnel-info.component
 })
 export class ArchiveConsulterComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private archiveServe : ArchiveService,private datePipe: DatePipe,private serviceArchive :ArchiveForm2Service) { }
+  constructor(public dialog: MatDialog, private archiveServe : ArchiveService,
+              private datePipe: DatePipe,private serviceArchive :ArchiveForm2Service,private serviceLogin :FormLoginserve) { }
 
 
   displayedColumns: string[] = [ 'reference_boite','referencedossier','date_premier_rentrer' ,'date_sortie','date_recuperation' ,'details'];
@@ -29,6 +31,7 @@ export class ArchiveConsulterComponent implements OnInit {
 
   ngOnInit() {
     this.getallAEx();
+    this.serviceLogin.IsUserLogedOut(localStorage.getItem('token'));
   }
 
   Ajouterpopup(){
@@ -61,7 +64,7 @@ export class ArchiveConsulterComponent implements OnInit {
 
   onEditCnsultation(docc){
     localStorage.setItem("am","false");
-    this.serviceArchive.initialisation_archive2(docc);
+    this.serviceArchive.initialisation_archive2c(docc);
     this.dialog.open(AjouterAchivecComponent,{
       width: '1050px',
     });

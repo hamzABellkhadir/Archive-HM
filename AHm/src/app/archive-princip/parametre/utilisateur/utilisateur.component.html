@@ -30,7 +30,9 @@
 
     <ng-container class="matt" matColumnDef="actived">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Activer</mat-header-cell>
-      <mat-cell *matCellDef="let docc" >{{docc.actived}}
+      <mat-cell *matCellDef="let docc" >
+        <p *ngIf="docc.actived == true">Oui</p>
+        <p *ngIf="docc.actived == false">Non</p>
       </mat-cell>
     </ng-container>
 

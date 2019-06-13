@@ -1,69 +1,62 @@
 <header style="border-bottom:1px solid #000;height:100px">
   <div style="border-right: 1px solid black;width:20%;float:left">
+    <img [src]="imageUrl2" style="width:90px;height:50px; border: 1px; margin-top:20px ;margin-bottom: 5px">
 
   </div>
-  <div style="width:70%;float:left;text-align:center; margin-left: 95px;">
-    <p>
-      Royaume du Maroc<br>
-      Université Mohammed premier <br>
-      Ecole Supérieure De Technologie<br>
-      Oujda
-    </p>
-
+  <div style="width:70%;float:left;text-align:center;font-size: 30px">
+      Fiche de renseignement
   </div>
 </header>
 
+<div style="padding-left:40px;padding-top:10px;">
 
-<div style="padding-left:40px;padding-top:50px;">
-
-  <h1  style="text-decoration:underline;text-align:center;margin-top:100px;margin-bottom:40px">Attestation de Scolarité</h1>
-  <p style="padding-left:70px;">Le Directeur de l'Ecole Supérieure de Technologie d'Oujda atteste que :</p>
-  <img [src]="imageUrl"  style="width:250px;height:200px; border: 1px; margin-top:20px ;margin-bottom: 5px">
+  <div style="border: 2px solid ; text-align: center;width: 100%;background-color:lightgray;size: 10px">Etat civil</div>
   <table style="width:100%">
+      <tr>
+        <td>
+          Nom : {{personnel?.nom_personnel}} <br>
+          Prénom : {{personnel?.prenom_personnel}} <br>
+          N° CIN : {{personnel?.id}} <br>
+          Date de naissance :  {{datePipe.transform(personnel?.date_naissances, 'yyyy-MM-dd')}}<br>
+          Ville de naissance : {{personnel?.ville_naissance}}<br>
+          Natinalité : {{personnel?.nationalite}}<br>
+          Situation familiale : {{personnel?.situation_familiale}}
+        </td>
+        <td>
+          <img [src]="imageUrl"  style="width:250px;height:190px; border: 1px; margin-top:20px ;margin-bottom: 5px">
+        </td>
 
-    <tr>
-      <td>L'étudiant (e)</td>
-      <td>:</td>
-      <td>{{personnel?.nom_personnel}} {{personnel?.prenom_personnel}}</td>
+  </table>
+
+
+  <div style="border: 2px solid ; text-align: center;width: 100%;background-color:lightgray;size: 10px">Coordonnées</div>
+
+
+  <table style="width:100%">
+    <tr colspan ="2">
+      <td>
+        Adresse : {{personnel?.adresse}}
+      </td>
     </tr>
     <tr>
-      <td>Né le</td>
-      <td>:</td>
-      <td>{{personnel?.date_naissances}}</td>
+      <td>
+        Ville : {{personnel?.ville}}
+      </td>
+      <td>
+        E-mail : {{personnel?.email}}
+      </td>
     </tr>
     <tr>
-      <td>C.N.I</td>
-      <td>:</td>
-      <td>{{personnel?.cni}}</td>
-    </tr>
-    <tr>
-      <td>N° nationalite</td>
-      <td>:</td>
-      <td>{{personnel?.nationalite}}</td>
-    </tr>
-    <tr>
-      <td>adresse</td>
-      <td>:</td>
-      <td>{{personnel?.adresse}}</td>
+      <td>
+        Téléphone mobile : {{personnel?.tel}}
+      </td>
     </tr>
   </table>
 
-  <div style="margin-bottom: 60px;margin-top: 60px">
-    A été inscrit(e) en {{personnel?.tel}} année du Diplôme Universitaire de Technologie pour l’année universitaire 2018/2019. <br>
-    Cette attestation est délivrée à l’intéressé(e) pour servir et valoir ce que de droit. <br><br>
-    Oujda le :
-  </div>
 
-
-
-  Le Directeur
 
 
 
 </div>
 
-<footer style="margin-top: 270px;border-top:1px solid #000;padding-top:5px;text-align:center;">
-  <address>ESTO. Adresse: BP 473 Complexe universitaire BP 473 Oujda <br>
-    Tél: 05 36 50 02 24  Fax: 05 36 50 02 23  site web: http://www.esto.ump.ma
-  </address>
-</footer>
+

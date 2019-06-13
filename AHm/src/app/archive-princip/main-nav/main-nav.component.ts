@@ -51,6 +51,9 @@ export class MainNavComponent implements OnInit{
   }
 
 
+  isAd(){
+    return this.serviceLogin.isAdmin(localStorage.getItem('token'));
+  }
 
 
 }

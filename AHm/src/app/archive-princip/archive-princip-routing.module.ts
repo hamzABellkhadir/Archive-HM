@@ -19,13 +19,7 @@ const routes:Routes = [
     component : ArchivePrincipComponent,
     children: [
       { path: 'profile', component: ProfilComponent },
-      { path: 'Parametre', component: ParametreComponent,
-        children: [
-          {path : 'personnel' , component : TousPersonnelTabComponent},
-          {path : 'division_service', component : DivisionServiceComponent},
-          {path : 'utilisateur', component : UtilisateurComponent}
-        ]
-      } ,
+      { path: 'Parametre', component: ParametreComponent},
       { path: 'archive', component: ArchiveVerseeComponent },
       { path: 'archiveSR', component: ArchiveConsulterComponent },
       { path: 'notification', component: ArchiveFDSComponent },

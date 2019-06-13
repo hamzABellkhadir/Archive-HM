@@ -3,7 +3,7 @@
   <span class="fill-remaining-space"></span>
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
 </mat-toolbar>
-<form [formGroup]="formarchives.formArchive" class="normal-form" >
+<form [formGroup]="formarchives.formArchiveC" class="normal-form" >
   <mat-grid-list cols="3" rowHeight="500px">
 
     <mat-grid-tile>
@@ -51,7 +51,7 @@
             </ng-container>
 
             <ng-container class="matt" matColumnDef="prenom_personnel">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>ID service</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Prenom</mat-header-cell>
               <mat-cell *matCellDef="let docc">{{docc.prenom_personnel}}</mat-cell>
             </ng-container>
 
@@ -86,7 +86,7 @@
       <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
 
         <mat-form-field >
-          <input formControlName="cniPersonnel"  matInput  placeholder="Localisation" required>
+          <input formControlName="cniPersonnel"  matInput  placeholder="CNI" required>
         </mat-form-field><br>
 
 
@@ -110,10 +110,10 @@
 
         <div class="button-row">
 
-          <button mat-raised-button color="primary" *ngIf="AM" [disabled]="formarchives.formArchive.invalid"
-                  (click)="ajouter_ArchiveSR(formarchives.formArchive.value)" >Envoyer</button>
-          <button mat-raised-button color="primary" *ngIf="!AM" [disabled]="formarchives.formArchive.invalid"
-                  (click)="modifier_ArchiveSR(formarchives.formArchive.value)" >modifier</button>
+          <button mat-raised-button color="primary" *ngIf="AM" [disabled]="formarchives.formArchiveC.invalid"
+                  (click)="ajouter_ArchiveSR(formarchives.formArchiveC.value)" >Envoyer</button>
+          <button mat-raised-button color="primary" *ngIf="!AM" [disabled]="formarchives.formArchiveC.invalid"
+                  (click)="modifier_ArchiveSR(formarchives.formArchiveC.value)" >modifier</button>
           <button mat-raised-button color="warn" (click)="onClear()">Supprimer</button>
         </div>
 

@@ -11,7 +11,7 @@
     <mat-table [dataSource]="dataSource" matSort matSortActive="date_sortie" matSortDirection="asc" >
 
       <ng-container class="matt" matColumnDef="commentaire">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>commentaire</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Commentaire</mat-header-cell>
         <mat-cell *matCellDef="let docc" >{{docc.commentaire}}</mat-cell>
       </ng-container>
 
@@ -21,20 +21,20 @@
       </ng-container>
 
       <ng-container class="matt" matColumnDef="date_sortie">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>date_sortie</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Date de sortie</mat-header-cell>
         <mat-cell *matCellDef="let docc" >{{datePipe.transform(docc.date_sortie, 'yyyy-MM-dd')}}</mat-cell>
       </ng-container>
 
 
 
       <ng-container class="matt" matColumnDef="datefin">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>datefin</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Date finale de récupération</mat-header-cell>
         <mat-cell *matCellDef="let docc" >{{datePipe.transform(docc.datefin, 'yyyy-MM-dd')}}
         </mat-cell>
       </ng-container>
 
       <ng-container class="matt" matColumnDef="date_recuperation">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>date_recuperation</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Date de récupération</mat-header-cell>
         <mat-cell *matCellDef="let docc">{{datePipe.transform(docc.date_recuperation, 'yyyy-MM-dd')}}</mat-cell>
       </ng-container>
 

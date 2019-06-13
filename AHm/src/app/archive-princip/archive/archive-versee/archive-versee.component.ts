@@ -10,6 +10,7 @@ import {DatePipe} from "@angular/common";
 import {AjouterAchivecComponent} from "./ajouter-achivec/ajouter-achivec.component";
 import {PersonnelInfoComponent} from "../personnel-info/personnel-info.component";
 import {TabArchivePersonnelComponent} from "./tab-archive-personnel/tab-archive-personnel.component";
+import {FormLoginserve} from "../../../login-princip/ServiceLogin/fromLogin";
 
 @Component({
   selector: 'app-archive-versee',
@@ -18,7 +19,8 @@ import {TabArchivePersonnelComponent} from "./tab-archive-personnel/tab-archive-
 })
 export class ArchiveVerseeComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private archiveServe : ArchiveService,private datePipe: DatePipe,private serviceArchive :ArchiveForm2Service) { }
+  constructor(public dialog: MatDialog, private archiveServe : ArchiveService,
+              private datePipe: DatePipe,private serviceArchive :ArchiveForm2Service,private serviceLogin :FormLoginserve) { }
 
 
   displayedColumns: string[] = [ 'reference_boite','referencedossier','date_premier_rentrer' ,'nom_projet','localisation' ,'details'];
@@ -32,6 +34,7 @@ export class ArchiveVerseeComponent implements OnInit {
 
   ngOnInit() {
     this.getallAEx();
+    this.serviceLogin.IsUserLogedOut(localStorage.getItem('token'));
   }
 
   Ajouterpopup(){
@@ -70,7 +73,7 @@ export class ArchiveVerseeComponent implements OnInit {
 
   onEditCnsultation(docc){
     localStorage.setItem("am","true");
-    this.serviceArchive.initialisation_archive1(docc);
+    this.serviceArchive.initialisation_archive1C(docc);
     this.dialog.open(AjouterAchivecComponent,{
       width: '1050px',
     });

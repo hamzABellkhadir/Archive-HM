@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ArchiveService} from "../serviceArchive/archive.service";
+import {ArchiveForm2Service} from "../serviceArchive/archive-form2.service";
+import {FormLoginserve} from "../../login-princip/ServiceLogin/fromLogin";
 declare function printData() : any;
 @Component({
   selector: 'app-accueil',
@@ -9,10 +11,11 @@ declare function printData() : any;
 })
 export class AccueilComponent implements OnInit {
 
-  constructor(private modalService: NgbModal,private archiveServe : ArchiveService) { }
+  constructor(private modalService: NgbModal,private archiveServe : ArchiveService,private serviceLogin :FormLoginserve) { }
 
   ngOnInit() {
     this.number_doc();
+    this.serviceLogin.IsUserLogedOut(localStorage.getItem('token'));
   }
 
 

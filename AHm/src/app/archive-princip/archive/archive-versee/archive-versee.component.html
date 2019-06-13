@@ -16,31 +16,31 @@
     <mat-table [dataSource]="dataSource" matSort matSortActive="pseuso" matSortDirection="asc" >
 
       <ng-container class="matt" matColumnDef="reference_boite">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>reference_boite</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Référence de boitier</mat-header-cell>
         <mat-cell *matCellDef="let docc" >{{docc.reference_boite}}</mat-cell>
       </ng-container>
 
 
       <ng-container class="matt" matColumnDef="referencedossier">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>referencedossier</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Référence de dossier</mat-header-cell>
         <mat-cell *matCellDef="let docc" >{{docc.referencedossier}}</mat-cell>
       </ng-container>
 
 
 
       <ng-container class="matt" matColumnDef="date_premier_rentrer">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>date_premier_rentrer</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Date de la première rentrée</mat-header-cell>
         <mat-cell *matCellDef="let docc" >{{datePipe.transform(docc.date_premier_rentrer, 'yyyy-MM-dd')}}
         </mat-cell>
       </ng-container>
 
       <ng-container class="matt" matColumnDef="nom_projet">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>nom_projet</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Nom du projet</mat-header-cell>
         <mat-cell *matCellDef="let docc">{{docc.nom_projet}}</mat-cell>
       </ng-container>
 
       <ng-container class="matt" matColumnDef="localisation">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>localisation</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Localisation</mat-header-cell>
         <mat-cell *matCellDef="let docc">{{docc.localisation}}</mat-cell>
       </ng-container>
 

@@ -3,6 +3,7 @@ import {ArchiveService} from "./archive.service";
 import {DatePipe} from "@angular/common";
 import {NotificationUService} from "../../login-princip/ServiceLogin/NotificationU";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {validate} from "codelyzer/walkerFactory/walkerFn";
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,65 @@ export class ArchiveForm2Service {
     })
   }
 
+  formArchiveC: FormGroup = new FormGroup({
+    id: new FormControl(null),
+    reference_boite: new FormControl(''),
+    referencedossier: new FormControl(''),
+    nom_projet: new FormControl(''),
+    raison_social:  new FormControl(''),
+    localisation: new FormControl(''),
+    observation :new FormControl(''),
+    suivi: new FormControl(''),
+    etat: new FormControl(''),
+    img_v: new FormControl(''),
+    img_c: new FormControl(''),
+    cniPersonnel :new FormControl('',Validators.required),
+    date_sortie: new FormControl('',Validators.required),
+    date_premier_rentrer: new FormControl(''),
+    date_recuperation: new FormControl('',Validators.required),
+    datefinrecuperation: new FormControl(''),
+  });
+  initialisation_archiveC() {
+    this.formArchiveC.setValue({
+      id:null,
+      reference_boite:"",
+      referencedossier:"",
+      nom_projet:"",
+      raison_social:"",
+      localisation:"",
+      observation:"",
+      suivi:'',
+      etat:"",
+      img_v:"",
+      img_c:"",
+      cniPersonnel:"",
+      date_sortie:"",
+      date_premier_rentrer:"",
+      date_recuperation:"",
+      datefinrecuperation:''
+    });
+  }
+  initialisation_archive1C(value) {
+    this.formArchiveC.setValue({
+      id:value.id,
+      reference_boite:value.reference_boite,
+      referencedossier:value.referencedossier,
+      nom_projet:value.nom_projet,
+      raison_social:value.raison_social,
+      localisation:value.localisation,
+      observation:value.observation,
+      suivi:value.suivi,
+      etat:value.etat,
+      img_v:value.img_v,
+      img_c:value.img_c,
+      date_sortie: this.datePipe.transform(value.date_sortie, 'yyyy-MM-dd'),
+      date_premier_rentrer: this.datePipe.transform(value.date_premier_rentrer, 'yyyy-MM-dd'),
+      date_recuperation: this.datePipe.transform(value.date_recuperation, 'yyyy-MM-dd'),
+      datefinrecuperation:  this.datePipe.transform(value.datefinrecuperation, 'yyyy-MM-dd'),
+
+      cniPersonnel:value.cniPersonnel
+    });
+  }
   initialisation_archive() {
     this.formArchive.setValue({
       id:null,
@@ -84,6 +144,28 @@ export class ArchiveForm2Service {
   initialisation_archive2(value) {
 
     this.formArchive.setValue({
+      id:value.id,
+      reference_boite:value.reference_boite,
+      referencedossier:value.referencedossier,
+      nom_projet:value.nom_projet,
+      raison_social:value.raison_social,
+      localisation:value.localisation,
+      observation:value.observation,
+      suivi:value.suivi,
+      etat:value.etat,
+      img_v:value.img_v,
+      img_c:value.img_c,
+      date_sortie: this.datePipe.transform(value.date_sortie, 'yyyy-MM-dd'),
+      date_premier_rentrer: this.datePipe.transform(value.date_premier_rentrer, 'yyyy-MM-dd'),
+      date_recuperation: this.datePipe.transform(value.date_recuperation, 'yyyy-MM-dd'),
+      datefinrecuperation:  this.datePipe.transform(value.datefinrecuperation, 'yyyy-MM-dd'),
+
+      cniPersonnel:value.personnel.id
+    });
+  }
+  initialisation_archive2c(value) {
+
+    this.formArchiveC.setValue({
       id:value.id,
       reference_boite:value.reference_boite,
       referencedossier:value.referencedossier,

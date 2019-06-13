@@ -36,7 +36,6 @@ export class AjouterASEEComponent implements OnInit {
     this.onClose();
   }
   modifier_ArchiveFDS(value){
-    console.log(value);
     this.formarchives.modifierArchiveFDSSEE(value,"fds");
     this.onClose();
   }

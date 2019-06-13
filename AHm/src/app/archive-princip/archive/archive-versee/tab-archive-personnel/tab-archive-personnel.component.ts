@@ -17,7 +17,7 @@ export class TabArchivePersonnelComponent implements OnInit {
   constructor(public dialog: MatDialog, private archiveServe : ArchiveService,
               private formarchives : ArchiveForm2Service,private serviceAdmin :AdminFormService,private datePipe: DatePipe) { }
 
-  displayedColumns: string[] = [ 'commentaire','nom_personnel','date_sortie','date_recuperation' ,'datefin', 'details'];
+  displayedColumns: string[] = [ 'nom_personnel','commentaire','date_sortie','date_recuperation' ,'datefin', 'details'];
   dataSource;
   x: any;
 

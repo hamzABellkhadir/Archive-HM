@@ -100,6 +100,8 @@ export class FormLoginserve {
     this.router.navigateByUrl('/');
     localStorage.removeItem("token");
   }
+
+
 }
 /*    this.cni = jwtObject.sub;
     this.roles = jwtObject.roles;*/

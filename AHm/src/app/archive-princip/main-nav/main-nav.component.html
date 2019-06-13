@@ -11,15 +11,13 @@
         <mat-list-item routerLink=""> <mat-icon color="primary"> home</mat-icon> Accueil </mat-list-item>
         <mat-list-item> <mat-icon color="primary"> archive</mat-icon> Archives </mat-list-item>
         <mat-list-item routerLink="archive" class=" souslist"> Versement aux archives </mat-list-item>
-
-        <mat-list-item routerLink="archiveSR" class="souslist"> Consultation des archives  </mat-list-item>
-        <mat-list-item routerLink="damandeStage" class="souslist"> Archives sorties </mat-list-item>
+        <mat-list-item routerLink="archiveSR" class="souslist"> Archives consultés </mat-list-item>
         <mat-list-item routerLink="notification" (click)="number_doc()">
          <mat-icon color="primary" *ngIf="count_doc?.length !== 0"  matBadge={{count_doc?.length}}  matBadgeColor="warn" > notification_important  </mat-icon>
           <mat-icon color="primary"   *ngIf="count_doc?.length == 0">notification_important</mat-icon>
-          Notification</mat-list-item>
+          Notifications</mat-list-item>
 
-        <mat-list-item routerLink="Parametre" > <mat-icon color="primary" >settings</mat-icon>Paramètre </mat-list-item>
+        <mat-list-item routerLink="Parametre"*ngIf="isAd()"> <mat-icon color="primary" >settings</mat-icon>Paramètres </mat-list-item>
 
       </mat-list>
     </mat-nav-list>
@@ -36,7 +34,7 @@
       </button>
       <img src="../../../assets/img/Ahm-Logo.png" class="logo img-fluid mx-auto d-block mb-3" alt="">
 
-      <span class="ppp">Espace Admin</span>
+      <span class="ppp">Espace d'administration</span>
       <span class="spacer"></span>
 
      <!-- <img mat-fab [matMenuTriggerFor]="menu" class="mmm clickcable" *ngIf="x?.image!==null" src="../../../assets/img/{{x?.image}}"> -->
@@ -48,9 +46,9 @@
           <mat-icon color="primary">account_circle</mat-icon>
           <span>Profile</span>
         </button>
-        <button mat-menu-item routerLink="Parametre" >
-          <mat-icon color="primary">settings</mat-icon>
-          <span>Paramétre</span>
+        <button mat-menu-item routerLink="Parametre" *ngIf="isAd()" >
+          <mat-icon color="primary" >settings</mat-icon>
+          <span>Paramétres</span>
         </button>
         <button mat-menu-item (click)="logout()">
           <mat-icon color="primary">exit_to_app</mat-icon>

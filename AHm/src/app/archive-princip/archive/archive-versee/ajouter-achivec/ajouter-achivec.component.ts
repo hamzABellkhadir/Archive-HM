@@ -38,8 +38,8 @@ export class AjouterAchivecComponent implements OnInit {
 
 
   imgphoto(){
-    if(this.formarchives.formArchive.get("img_c").value !="")
-      return this.formarchives.formArchive.get("img_c").value;
+    if(this.formarchives.formArchiveC.get("img_c").value !="")
+      return this.formarchives.formArchiveC.get("img_c").value;
     else return "fichier.png";
   }
 
@@ -63,8 +63,8 @@ export class AjouterAchivecComponent implements OnInit {
 
 
   onClose() {
-    this.formarchives.formArchive.reset();
-    this.formarchives.initialisation_archive()
+    this.formarchives.formArchiveC.reset();
+    this.formarchives.initialisation_archiveC()
     this.dialogRef.close();
   }
 
@@ -82,11 +82,10 @@ export class AjouterAchivecComponent implements OnInit {
   }
 
   modifier_ArchiveSR(value){
-    console.log(value);
-    console.log(this.imagePersonnel);
     if(this.imagePersonnel == undefined){
       this.formarchives.modifierArchiveSR(value,null);
     }else{
+      console.log(value);
       this.formarchives.modifierArchiveSR(value,this.imagePersonnel);
     }
     this.onClear();
@@ -104,14 +103,14 @@ export class AjouterAchivecComponent implements OnInit {
 
 
   onClear(){
-    this.formarchives.initialisation_archive();
+    this.formarchives.initialisation_archiveC();
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   openDialog(x){
-    this.formarchives.formArchive.get('cniPersonnel').setValue(x);
+    this.formarchives.formArchiveC.get('cniPersonnel').setValue(x);
   }
 
   getallPersonnel(){
