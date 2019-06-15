@@ -4,11 +4,11 @@
   <div class="card">
     <img src="../../../assets/img/Ahm-Logo.png" style="width: 100%" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Fichier de consultation des archive </h5>
+      <h5 class="card-title">Fichier de consultation des archives </h5>
       <hr>
-      <p class="card-text">Pour que un Personnel arrive a consulter un archive il faux donc remplir un fichier qui contient vot information.</p>
+      <p class="card-text">Pour qu'un Personnel arrive à consulter un archive, il faut remplir un fichier.</p>
     </div>
-      <button mat-button (click)="openBackDropCustomClass(content)" class="card-footer" >Telecharger</button>
+      <button mat-button (click)="openBackDropCustomClass(content)" class="card-footer" >Imprimer</button>
   </div>
 </div>
 
@@ -16,11 +16,11 @@
   <div class="card">
     <img src="../../../assets/img/Ahm-Logo.png" style="width: 100%" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Déposer un achive </h5>
+      <h5 class="card-title">Fichier de versement aux archives </h5>
       <hr>
-      <p class="card-text">Pour que un Personnel arrive a déposer un archive il faux donc remplir un fichier qui contient vot information.</p>
+      <p class="card-text">Pour qu'un Personnel arrive à verser un archive, il faut remplir un fichier.</p>
     </div>
-    <button mat-button (click)="openBackDropCustomClass(content1)" class="card-footer" >Déposer!</button>
+    <button mat-button (click)="openBackDropCustomClass(content1)" class="card-footer" >Imprimer</button>
   </div>
 </div>
 
@@ -28,11 +28,11 @@
     <div class="card">
       <img src="../../../assets/img/Ahm-Logo.png" style="width: 100%" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Information</h5>
+        <h5 class="card-title">Informations</h5>
         <hr>
-        <p class="card-text">Pour §§que un Personnel arrive a déposer un archive il faux donc remplir un fichier qui contient vot information.</p>
+        <p class="card-text">Le CRI de l’Oriental offre une structure souple et réactive, ainsi qu’il donne l’accès à des informations détaillées, une obtention rapide à tous les
+          services dont l’investisseur a besoin en vue d’accélérer les démarches administratives nécessaires à son implantation.</p>
       </div>
-      <button mat-button class="card-footer" >Déposer!</button>
     </div>
   </div>
 </div>
@@ -42,9 +42,7 @@
 <!-- valider la demande et imprimer -->
 
 <ng-template #content id="content" let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">demande Numéro test</h4>
-  </div>
+
   <div class="modal-body" id="print" >
     <app-consultation-impri></app-consultation-impri>
   </div>
@@ -62,9 +60,7 @@
 <!-- valider la demande et imprimer -->
 
 <ng-template #content1 id="content1" let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">demande Numéro test</h4>
-  </div>
+
   <div class="modal-body"  id="print">
     <app-versement-impri></app-versement-impri>
   </div>

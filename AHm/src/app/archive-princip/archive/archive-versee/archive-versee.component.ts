@@ -23,7 +23,7 @@ export class ArchiveVerseeComponent implements OnInit {
               private datePipe: DatePipe,private serviceArchive :ArchiveForm2Service,private serviceLogin :FormLoginserve) { }
 
 
-  displayedColumns: string[] = [ 'reference_boite','referencedossier','date_premier_rentrer' ,'nom_projet','localisation' ,'details'];
+  displayedColumns: string[] = [ 'reference_boite','referencedossier','raison_social','date_premier_rentrer' ,'nom_projet','localisation' ,'details'];
   dataSource;
   x: any;
 

@@ -5,7 +5,7 @@
 <div class="card text-white bg-info mb-3" style="width: 18rem;">
   <div class="card-header">Archives</div>
   <div class="card-body">
-    <h5 class="card-title" *ngIf="count_doc?.length == 0">Il n'y a aucune</h5>
+    <h5 class="card-title" *ngIf="count_doc?.length == 0">Il n'y a aucun</h5>
     <h5 class="card-title" *ngIf="count_doc?.length !== 0">{{count_doc?.length}}</h5>
     <p class="card-text">Archives existent dans votre application.</p>
   </div>
@@ -15,7 +15,7 @@
 <div class="card text-white bg-danger mb-3" style="width: 18rem;">
   <div class="card-header">Archives </div>
   <div class="card-body">
-    <h5 class="card-title" *ngIf="count_fds?.length == 0">Il n'y a aucune</h5>
+    <h5 class="card-title" *ngIf="count_fds?.length == 0">Il n'y a aucun</h5>
     <h5 class="card-title" *ngIf="count_fds?.length !== 0">{{count_fds?.length}}</h5>
     <p class="card-text">Archives qui ont dépassé la date  précise  de la recuperation .</p>
   </div>
@@ -24,7 +24,7 @@
 <div class="card text-white bg-warning mb-3" style="width: 18rem; height: 11rem">
   <div class="card-header">Archives</div>
   <div class="card-body">
-    <h5 class="card-title" *ngIf="count_sr?.length == 0">Il n'y a aucune</h5>
+    <h5 class="card-title" *ngIf="count_sr?.length == 0">Il n'y a aucun</h5>
     <h5 class="card-title" *ngIf="count_sr?.length !== 0">{{count_sr?.length}}</h5>
     <p class="card-text">Archives en état de sortie.</p>
   </div>
@@ -37,7 +37,7 @@
         <div class="card text-white bg-info mb-3" style="width: 18rem; height: 11rem">
           <div class="card-header">Utilisateurs</div>
           <div class="card-body">
-            <h5 class="card-title" *ngIf="count_us?.length == 0">Il n'y a aucune</h5>
+            <h5 class="card-title" *ngIf="count_us?.length == 0">Il n'y a aucun</h5>
             <h5 class="card-title" *ngIf="count_us?.length !== 0">{{count_us?.length}}</h5>
             <p class="card-text">Utilisateurs existent dans votre application.</p>
           </div>
@@ -48,7 +48,7 @@
         <div class="card text-white bg-info mb-3" style="width: auto; height: 11rem">
           <div class="card-header">Personnels</div>
           <div class="card-body">
-            <h5 class="card-title" *ngIf="count_pr?.length == 0">Il n'y a aucune</h5>
+            <h5 class="card-title" *ngIf="count_pr?.length == 0">Il n'y a aucun</h5>
             <h5 class="card-title" *ngIf="count_pr?.length !== 0">{{count_pr?.length}}</h5>
             <p class="card-text">Personnels existent dans votre application.</p>
           </div>
@@ -66,7 +66,7 @@
             <h5 class="card-title">Fichier </h5>
             <p class="card-text">Consultation des archives.</p>
           </div>
-          <button mat-button color="primary" (click)="openBackDropCustomClass(content)"  class="card-footer" >Telecharger</button>
+          <button mat-button color="primary" (click)="openBackDropCustomClass(content)"  class="card-footer" >Imprimer</button>
         </div>
       </td>
       <td>
@@ -75,7 +75,7 @@
             <h5 class="card-title">Fichier </h5>
             <p class="card-text">Versemant aux archives.</p>
           </div>
-          <button mat-button color="primary"  (click)="openBackDropCustomClass(content1)" class="card-footer" >Telecharger</button>
+          <button mat-button color="primary"  (click)="openBackDropCustomClass(content1)" class="card-footer" >Imprimer</button>
         </div>
       </td>
     </tr>
@@ -87,9 +87,7 @@
   <!-- valider la demande et imprimer -->
 
   <ng-template #content id="content" let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title">demande Numéro test</h4>
-    </div>
+
     <div class="modal-body" id="print" >
       <app-consultation-impri></app-consultation-impri>
     </div>
@@ -107,9 +105,7 @@
   <!-- valider la demande et imprimer -->
 
   <ng-template #content1 id="content1" let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title">demande Numéro test</h4>
-    </div>
+
     <div class="modal-body"  id="print">
       <app-versement-impri></app-versement-impri>
     </div>

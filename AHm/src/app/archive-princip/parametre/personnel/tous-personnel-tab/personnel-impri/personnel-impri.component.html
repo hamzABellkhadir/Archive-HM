@@ -1,30 +1,34 @@
-<header style="border-bottom:1px solid #000;height:100px">
-  <div style="border-right: 1px solid black;width:20%;float:left">
-    <img [src]="imageUrl2" style="width:90px;height:50px; border: 1px; margin-top:20px ;margin-bottom: 5px">
+<header style="height:80px;">
+  <div style="width:20%;float:left">
+    <img [src]="imageUrl2" style="width:80px;height:30px; border: 1px; margin-top:10px ;margin-bottom: 5px"><br>
+    <p style="font-size: 10px; text-align: center;margin-bottom: 10px;"> Centre régional d'investissement </p>
 
   </div>
+  <br>
+
+
   <div style="width:70%;float:left;text-align:center;font-size: 30px">
-      Fiche de renseignement
+    Fiche de renseignement
   </div>
 </header>
 
-<div style="padding-left:40px;padding-top:10px;">
+<div style="padding-left:40px;padding-top:10px; margin-top: 80px">
 
   <div style="border: 2px solid ; text-align: center;width: 100%;background-color:lightgray;size: 10px">Etat civil</div>
-  <table style="width:100%">
-      <tr>
-        <td>
-          Nom : {{personnel?.nom_personnel}} <br>
-          Prénom : {{personnel?.prenom_personnel}} <br>
-          N° CIN : {{personnel?.id}} <br>
-          Date de naissance :  {{datePipe.transform(personnel?.date_naissances, 'yyyy-MM-dd')}}<br>
-          Ville de naissance : {{personnel?.ville_naissance}}<br>
-          Natinalité : {{personnel?.nationalite}}<br>
-          Situation familiale : {{personnel?.situation_familiale}}
-        </td>
-        <td>
-          <img [src]="imageUrl"  style="width:250px;height:190px; border: 1px; margin-top:20px ;margin-bottom: 5px">
-        </td>
+  <table style="width:100%;margin-bottom: 20px">
+    <tr>
+      <td width="350">
+        Nom : {{personnel?.nom_personnel}} <br>
+        Prénom : {{personnel?.prenom_personnel}} <br>
+        N° CIN : {{personnel?.id}} <br>
+        Date de naissance :  {{datePipe.transform(personnel?.date_naissances, 'yyyy-MM-dd')}}<br>
+        Ville de naissance : {{personnel?.ville_naissance}}<br>
+        Natinalité : {{personnel?.nationalite}}<br>
+        Situation familiale : {{personnel?.situation_familiale}}
+      </td>
+      <td>
+        <img [src]="imageUrl"  style="width:250px;height:190px; border: 1px; margin-top:20px ;margin-bottom: 5px">
+      </td>
 
   </table>
 
@@ -32,9 +36,9 @@
   <div style="border: 2px solid ; text-align: center;width: 100%;background-color:lightgray;size: 10px">Coordonnées</div>
 
 
-  <table style="width:100%">
-    <tr colspan ="2">
-      <td>
+  <table style="width:100%;margin-top: 20px;margin-bottom: 20px">
+    <tr >
+      <td colspan ="2">
         Adresse : {{personnel?.adresse}}
       </td>
     </tr>
@@ -53,10 +57,49 @@
     </tr>
   </table>
 
+  <div style="border: 2px solid ; text-align: center;width: 100%;background-color:lightgray;size: 10px">Administration publique</div>
 
+  <table style="margin-top: 20px;margin-bottom: 20px">
+    <tr>
+      <td>Date d'entré : {{datePipe.transform(personnel?.date_entre, 'yyyy-MM-dd')}}</td> <td>Date d'arrivée au cri : {{datePipe.transform(personnel?.date_arrivee_cri, 'yyyy-MM-dd')}}</td>
+    </tr>
+    <tr>
+      <td>N°PPR : {{personnel?.num_ppr}}</td> <td>Grade : {{personnel?.grade}}</td>
+    </tr>
+    <tr>
+      <td>Type d'engagement : {{personnel?.type_engagement}}</td> <td> Budget : {{personnel?.budget}}</td>
+    </tr>
+    <tr>
+      <td>Fonction exercée : {{personnel?.fonction_exercee}}</td>
+    </tr>
+    <tr>
+      <td>Service : {{personnel?.service.nom_service}}</td>
+    </tr>
+    <tr>
+      <td>Division : {{personnel?.service.division.nom_division}}</td>
+    </tr>
+    <tr>
+      <td>N° de compte bancaire : {{personnel?.compte_bancaire}}</td>
+    </tr>
+    <tr>
+      <td width="330">Agence bancaire : {{personnel?.agence_bancaire}}</td>
+    </tr>
 
+  </table>
 
+  <div style="border: 2px solid ; text-align: center;width: 100%;background-color:lightgray;size: 10px"> Formation</div>
+  <table style="margin-top: 20px;margin-bottom: 20px">
+    <tr>
+      <td>Niveau d'étude : {{personnel?. niveau_etude}}</td>
+    </tr>
+    <tr>
+      <td> Diplome obtenu :   {{personnel?.diplome}} </td>
+      <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date d'obtention :  {{datePipe.transform(personnel?.date_obtention_diplome, 'yyyy-MM-dd')}}</td>
+    </tr>
+    <tr>
+      <td width="315">Spécialité : {{personnel?.specialite}}</td>
+    </tr>
+  </table>
 
 </div>
-
 

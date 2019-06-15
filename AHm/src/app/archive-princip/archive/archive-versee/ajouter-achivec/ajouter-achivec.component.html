@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>{{!AM?"Modifiere une Consultation":"Ajouter une Consultation"}}</span>
+  <span>{{!AM?"Modifier une consultation":"Ajouter une consultation"}}</span>
   <span class="fill-remaining-space"></span>
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
 </mat-toolbar>
@@ -33,14 +33,14 @@
 
 
         <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Rechercher">
         </mat-form-field>
 
         <div class="mat-elevation-z8">
           <mat-table [dataSource]="dataSource" matSort matSortActive="id" matSortDirection="asc" >
 
             <ng-container class="matt" matColumnDef="id">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>N CNI</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header>N° CNI</mat-header-cell>
               <mat-cell *matCellDef="let docc" >{{docc.id}}</mat-cell>
             </ng-container>
 
@@ -51,7 +51,7 @@
             </ng-container>
 
             <ng-container class="matt" matColumnDef="prenom_personnel">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>Prenom</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Prénom</mat-header-cell>
               <mat-cell *matCellDef="let docc">{{docc.prenom_personnel}}</mat-cell>
             </ng-container>
 
@@ -99,7 +99,7 @@
         </mat-form-field><br>
 
         <mat-form-field >
-          <input formControlName="date_recuperation" [matDatepicker]="picker1"   matInput placeholder="Date de Recuperation"required >
+          <input formControlName="date_recuperation" [matDatepicker]="picker1"   matInput placeholder="Date de Récupération"required >
           <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field><br>

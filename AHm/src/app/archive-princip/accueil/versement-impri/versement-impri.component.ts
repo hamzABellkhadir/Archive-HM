@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class VersementImpriComponent implements OnInit {
 
   constructor() { }
-
+  imageUrl2;
   ngOnInit() {
+    this.imageUrl2 = "../../../assets/img/img-personnel/logo.jpg";
   }
 
 }

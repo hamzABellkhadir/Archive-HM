@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>{{!AM?"Modifiere un Personnel":"Ajouter un Personnel"}}</span>
+  <span>{{!AM?"Modifier un personnel":"Ajouter un personnel"}}</span>
   <span class="fill-remaining-space"></span>
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
 </mat-toolbar>
@@ -36,7 +36,7 @@
 
 
             <mat-form-field >
-              <input formControlName="prenom_personnel"  matInput  placeholder="Prenom*" >
+              <input formControlName="prenom_personnel"  matInput  placeholder="Prénom*" >
             </mat-form-field><br>
             <mat-form-field >
               <input formControlName="nom_personnel"  matInput  placeholder="Nom*" >
@@ -47,7 +47,7 @@
             </mat-form-field><br>
 
             <mat-form-field >
-              <input formControlName="nationalite"  matInput  placeholder="Nationalite*" >
+              <input formControlName="nationalite"  matInput  placeholder="Nationalité*" >
             </mat-form-field><br>
             <mat-form-field >
               <input formControlName="situation_familiale"  matInput  placeholder="Situation familiale*" >
@@ -85,7 +85,7 @@
             </mat-form-field><br>
 
             <mat-form-field >
-              <input formControlName="tel"  matInput  placeholder="№ Telephone*" >
+              <input formControlName="tel"  matInput  placeholder="№ Téléphone*" >
               <mat-error *ngIf="formarchive.form.controls['tel'].errors?.minlength">minimum 10 caractère</mat-error>
               <mat-hint align="end">06**/05**</mat-hint>
             </mat-form-field><br>
@@ -113,7 +113,7 @@
   </mat-step>
   <mat-step [stepControl]="formarchive.form">
     <form [formGroup]="formarchive.form">
-      <ng-template matStepLabel>Administration Publique</ng-template>
+      <ng-template matStepLabel>Administration publique</ng-template>
 
       <mat-grid-list cols="3" rowHeight="550px" >
 
@@ -124,7 +124,7 @@
 
 
             <mat-form-field >
-              <input formControlName="fonction_exercee"  matInput  placeholder="Fonction exercee*" >
+              <input formControlName="fonction_exercee"  matInput  placeholder="Fonction exercée*" >
             </mat-form-field><br>
             <mat-form-field >
               <input formControlName="compte_bancaire"  matInput  placeholder="№ compte bancaire*" >
@@ -135,7 +135,7 @@
               <input formControlName="grade"  matInput  placeholder="Grade*" >
             </mat-form-field><br>
             <mat-form-field >
-              <input formControlName="num_ppr"  matInput  placeholder="num_ppr*" >
+              <input formControlName="num_ppr"  matInput  placeholder="N° ppr*" >
             </mat-form-field><br>
 
           </div>
@@ -160,7 +160,7 @@
 
 
             <mat-form-field >
-              <input formControlName="specialite"  matInput  placeholder="Specialité*" >
+              <input formControlName="specialite"  matInput  placeholder="Spécialité*" >
             </mat-form-field><br>
 
 
@@ -187,13 +187,13 @@
 
 
             <mat-form-field >
-              <input formControlName="date_entre"  [matDatepicker]="picker2"   matInput placeholder="Date d'entre*" >
+              <input formControlName="date_entre"  [matDatepicker]="picker2"   matInput placeholder="Date d'entrée*" >
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field><br>
 
             <mat-form-field >
-              <input formControlName="date_arrivee_cri"  [matDatepicker]="picker3"   matInput placeholder="Date d'arrivee a cri*" >
+              <input formControlName="date_arrivee_cri"  [matDatepicker]="picker3"   matInput placeholder="Date d'arrivée a cri*" >
               <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
               <mat-datepicker #picker3></mat-datepicker>
             </mat-form-field><br>
@@ -225,7 +225,7 @@
           <div class="controles " style="margin-top: 0px; margin-right: 2%;  margin-left: 9%;">
 
             <mat-form-field>
-              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Rechercher">
             </mat-form-field>
 
             <div class="mat-elevation-z8">

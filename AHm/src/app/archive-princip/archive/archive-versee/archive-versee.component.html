@@ -26,6 +26,10 @@
         <mat-cell *matCellDef="let docc" >{{docc.referencedossier}}</mat-cell>
       </ng-container>
 
+      <ng-container class="matt" matColumnDef="raison_social">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Raison sociale</mat-header-cell>
+        <mat-cell *matCellDef="let docc" >{{docc.raison_social}}</mat-cell>
+      </ng-container>
 
 
       <ng-container class="matt" matColumnDef="date_premier_rentrer">
@@ -33,6 +37,7 @@
         <mat-cell *matCellDef="let docc" >{{datePipe.transform(docc.date_premier_rentrer, 'yyyy-MM-dd')}}
         </mat-cell>
       </ng-container>
+
 
       <ng-container class="matt" matColumnDef="nom_projet">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Nom du projet</mat-header-cell>

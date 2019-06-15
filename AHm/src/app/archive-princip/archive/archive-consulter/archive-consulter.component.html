@@ -21,6 +21,11 @@
       </ng-container>
 
 
+      <ng-container class="matt" matColumnDef="raison_social">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Raison sociale</mat-header-cell>
+        <mat-cell *matCellDef="let docc" >{{docc.raison_social}}</mat-cell>
+      </ng-container>
+
 
       <ng-container class="matt" matColumnDef="date_premier_rentrer">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Date de la première rentrée</mat-header-cell>
