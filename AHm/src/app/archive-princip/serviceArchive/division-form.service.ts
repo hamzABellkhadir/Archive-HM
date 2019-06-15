@@ -65,7 +65,7 @@ export class DivisionFormService {
   saveODivision(value){
    // console.log(value)
     this.servicegl.saveDivision(value).subscribe(data=>{
-      this.notification.success1("Vous avez Ajouter une Division")
+      this.notification.success1("Vous avez Ajouté une Division")
     },error => {
       this.notification.success(error.error.message);
      // console.log(error)
@@ -74,7 +74,7 @@ export class DivisionFormService {
 
   updateODivision(value){
     this.servicegl.updateDivision(value).subscribe(data=>{
-      this.notification.success1("Vous avez modifier une Division")
+      this.notification.success1("Vous avez modifié une Division")
     },error => {
       this.notification.success(error.error.message)
     })
@@ -83,22 +83,20 @@ export class DivisionFormService {
 
   saveOService(value){
     this.servicegl.saveService(value).subscribe(data=>{
-      this.notification.success1("Vous avez Ajouter un Service")
+      this.notification.success1("Vous avez Ajouté un Service")
     },error => {
       this.notification.success(error.error.message)
     })
   }
+
 
   updateOService(value){
     this.servicegl.updateService(value).subscribe(data=>{
-      this.notification.success1("Vous avez modifier un Service")
+      this.notification.success1("Vous avez modifié un Service")
     },error => {
       this.notification.success(error.error.message)
     })
   }
-
-
-
 
 
 

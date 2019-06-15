@@ -9,9 +9,7 @@
 
    <mat-card-content>
      <div style="float: left ;height: 320px;">
-       <img class="pho" style="background-size: cover; width: 300px" mat-card-image *ngIf="x?.photo!==null" src="../../../assets/img/{{x?.photo}}">
-       <img class="pho" style="background-size: cover; width: 300px" mat-card-image *ngIf="x?.photo==null" src="../../../assets/img/user.png">
-
+       <img class="pho" style="background-size: cover; max-width: 250px" *ngIf="x?.photo!==null" mat-card-image  src="../../../assets/img/img-personnel/{{x?.photo}}">
      </div>
 
      <div class="di">

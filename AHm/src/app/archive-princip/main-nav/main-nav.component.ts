@@ -47,7 +47,14 @@ export class MainNavComponent implements OnInit{
   number_doc(){
       this.archiveServe.getAllArchive("fds").subscribe(data=>{
           this.count_doc = data;
-        })
+        });
+    this.archiveServe.getUser(this.serviceLogin.parseJWT(localStorage.getItem("token")).sub)
+      .subscribe(data => {
+          this.x=data;
+        },error1 => {
+          console.log(error1);
+        }
+      )
   }
 
 

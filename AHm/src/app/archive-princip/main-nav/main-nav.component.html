@@ -37,8 +37,9 @@
       <span class="ppp">Espace d'administration</span>
       <span class="spacer"></span>
 
-     <!-- <img mat-fab [matMenuTriggerFor]="menu" class="mmm clickcable" *ngIf="x?.image!==null" src="../../../assets/img/{{x?.image}}"> -->
-      <img mat-fab [matMenuTriggerFor]="menu" class="mmm clickcable" *ngIf="x?.image==null" src="../../../assets/img/user.png">
+      <!-- <img mat-fab [matMenuTriggerFor]="menu" class="mmm clickcable" *ngIf="x?.image!==null" src="../../../assets/img/{{x?.image}}"> -->
+
+     <img mat-fab [matMenuTriggerFor]="menu" class="mmm clickcable" *ngIf="x?.photo!==null" src="../../../assets/img/img-personnel/{{x?.photo}}">
 
 
       <mat-menu #menu="matMenu">

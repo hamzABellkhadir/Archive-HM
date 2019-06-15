@@ -200,7 +200,7 @@ export class ArchiveForm2Service {
           this.notification.success1(error.error.message)
         }
       );
-      this.notification.success1("Vous avez ajouter un Archive");
+      this.notification.success1("Vous avez ajouté un Archive");
     },error => {
       this.notification.success(error.error.message)
     });
@@ -217,7 +217,7 @@ export class ArchiveForm2Service {
           this.servicegl.saveImgArchiveV(formdata).subscribe(data=>{
           })
       }
-      this.notification.success1("Vous avez Modifier un Personnel")
+      this.notification.success1("Vous avez Modifié un Archive")
     },error => {
       this.notification.success(error.error.message)
     })
@@ -235,7 +235,7 @@ export class ArchiveForm2Service {
         this.servicegl.saveImgArchiveC(formdata).subscribe(data=>{
           })
         }
-      this.notification.success1("Vous avez Modifier un Personnel")
+      this.notification.success1("Vous avez Modifié un Archive")
     },error => {
       this.notification.success(error.error.message)
     })
@@ -245,7 +245,7 @@ export class ArchiveForm2Service {
     let x;
     value.etat = etat;
     this.servicegl.updateArchiveEx(value).subscribe(data=>{
-      this.notification.success1("Vous avez Modifier un Personnel")
+      this.notification.success1("Vous avez Modifié un Archive")
     },error => {
       this.notification.success(error.error.message)
     })
