@@ -11,7 +11,7 @@ import {NotificationUService} from "../../../../login-princip/ServiceLogin/Notif
 })
 export class AjouterASEEComponent implements OnInit {
 
-  constructor(private formarchives : ArchiveForm2Service ,
+  constructor(public formarchives : ArchiveForm2Service ,
               public dialog: MatDialog,
               private archiveServe : ArchiveService,
               public dialogRef: MatDialogRef<AjouterASEEComponent>,private notification :NotificationUService) { }

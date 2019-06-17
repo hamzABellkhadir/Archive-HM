@@ -13,7 +13,7 @@ import {NotificationUService} from "../../../../login-princip/ServiceLogin/Notif
 })
 export class AjouterpersonnelComponent implements OnInit {
 
-  constructor(private formarchive : ArchiveFormService ,
+  constructor(public formarchive : ArchiveFormService ,
               public dialog: MatDialog,
               private archiveServe : ArchiveService,
               public dialogRef: MatDialogRef<AjouterpersonnelComponent>,private notification :NotificationUService) { }

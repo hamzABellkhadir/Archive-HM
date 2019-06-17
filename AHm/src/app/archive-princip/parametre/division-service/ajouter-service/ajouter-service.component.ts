@@ -10,7 +10,7 @@ import {ArchiveService} from "../../../serviceArchive/archive.service";
 })
 export class AjouterServiceComponent implements OnInit {
 
-  constructor(private serviceds: DivisionFormService ,
+  constructor(public serviceds: DivisionFormService ,
               public dialogRef1: MatDialogRef<AjouterServiceComponent>,
               private archiveServe : ArchiveService) { }
 

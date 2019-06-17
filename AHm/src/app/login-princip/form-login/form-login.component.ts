@@ -11,7 +11,7 @@ import {replaceNgsp} from "@angular/compiler/src/ml_parser/html_whitespaces";
 })
 export class FormLoginComponent implements OnInit {
 
-  constructor(protected formLoginService : FormLoginserve) { }
+  constructor(public formLoginService : FormLoginserve) { }
 
   ngOnInit() {
   }

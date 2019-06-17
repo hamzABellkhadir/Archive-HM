@@ -1,4 +1,4 @@
-import {NgModule} from "@angular/core";
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {LoginPrincipComponent} from "./login-princip.component";
 import {LoginPrincipRoutingModule} from "./login-princip-routing.module";
 import {CommonModule} from "@angular/common";
@@ -26,6 +26,9 @@ import { VersementImpriComponent } from './nv-information/versement-impri/versem
     NvInformationComponent,
     ConsultationImpriComponent,
     VersementImpriComponent,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [FormLoginserve,NotificationUService],
 })

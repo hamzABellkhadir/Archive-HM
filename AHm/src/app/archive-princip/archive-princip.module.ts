@@ -1,4 +1,4 @@
-import {NgModule} from "@angular/core";
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {ArchivePrincipRoutingModule} from "./archive-princip-routing.module";
 import {CommonModule, DatePipe} from "@angular/common";
 import {MaterialModule} from "../material/material.module";
@@ -50,6 +50,9 @@ import { PersoInformaComponent } from './archive/archive-versee/perso-informa/pe
     PersonnelInfoComponent,
     AccueilComponent,VersementImpriComponent,ConsultationImpriComponent, TabArchivePersonnelComponent, PersoInformaComponent
 
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [DatePipe],
 })

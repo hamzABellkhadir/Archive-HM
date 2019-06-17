@@ -9,7 +9,7 @@ import {MatDialogRef} from "@angular/material";
 })
 export class AjouterDivisionComponent implements OnInit {
 
-  constructor(private serviceds: DivisionFormService ,public dialogRef: MatDialogRef<AjouterDivisionComponent>) { }
+  constructor(public serviceds: DivisionFormService ,public dialogRef: MatDialogRef<AjouterDivisionComponent>) { }
 
   ngOnInit() {
   }

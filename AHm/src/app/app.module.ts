@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MaterialModule} from './material/material.module';
@@ -31,6 +31,7 @@ import {PersoInformaComponent} from "./archive-princip/archive/archive-versee/pe
     ArchivePrincipModule,
   ],
 
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 
   entryComponents : [AjouterpersonnelComponent,AjouterUtilisateurComponent
     ,AjouterServiceComponent,AjouterDivisionComponent,

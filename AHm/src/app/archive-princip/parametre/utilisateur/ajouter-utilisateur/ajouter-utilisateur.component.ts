@@ -10,7 +10,7 @@ import {ArchiveService} from "../../../serviceArchive/archive.service";
 })
 export class AjouterUtilisateurComponent implements OnInit {
 
-  constructor(private serviceAdmin :AdminFormService,
+  constructor(public serviceAdmin :AdminFormService,
               public dialogRef: MatDialogRef<AjouterUtilisateurComponent>, private archiveServe : ArchiveService) { }
 
   roles = [

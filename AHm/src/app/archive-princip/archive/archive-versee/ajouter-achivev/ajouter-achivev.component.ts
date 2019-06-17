@@ -11,7 +11,7 @@ import {ArchiveForm2Service} from "../../../serviceArchive/archive-form2.service
 })
 export class AjouterAchivevComponent implements OnInit {
 
-  constructor(private formarchives : ArchiveForm2Service ,
+  constructor(public formarchives : ArchiveForm2Service ,
               public dialog: MatDialog,
               private archiveServe : ArchiveService,
               public dialogRef: MatDialogRef<AjouterAchivevComponent>,private notification :NotificationUService) { }
